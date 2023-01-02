@@ -2,10 +2,10 @@
 
 namespace Dttl.Qr.Service
 {
-    [ValidateModel]
+   
     [PerformAudit]
     [HandleError]
-    
+    [ValidateModel]
     public class BaseController : ControllerBase
     {
         public readonly ILogger _logger;
