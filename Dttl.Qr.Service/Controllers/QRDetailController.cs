@@ -9,6 +9,7 @@ namespace Dttl.Qr.Service
     public class QRDetailController : BaseController
     {
         private readonly IQRDetailService _qRDetailService;
+
         public QRDetailController(IQRDetailService qRDetailService, ILogger<QRDetailController> logger) : base(logger)
         {
             _qRDetailService = qRDetailService;

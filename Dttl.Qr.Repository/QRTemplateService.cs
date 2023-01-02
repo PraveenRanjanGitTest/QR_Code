@@ -7,18 +7,22 @@ namespace Dttl.Qr.Repository
     public class QRTemplateService : IQRTemplateService
     {
         private readonly DbContextClass _dbContext;
+
         public QRTemplateService(DbContextClass dbContext)
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<QRTemplate>> GetQRTemplateList()
         {
             return await _dbContext._qRTemplates.ToListAsync();
         }
+
         public async Task<QRTemplate> GetQRTemplateListById(int Id)
         {
             return await _dbContext._qRTemplates.FirstOrDefaultAsync(m => m.TemplateId == Id);
         }
+
         public async Task<QRTemplate> AddQRTemplate(QRTemplate qRTemplate)
         {
             var result = await _dbContext.AddAsync(qRTemplate);
@@ -32,6 +36,7 @@ namespace Dttl.Qr.Repository
             await _dbContext.SaveChangesAsync();
             return result.Entity;
         }
+
         public async Task<QRTemplate> DeleteQRTemplate(int Id)
         {
             var result = await _dbContext._qRTemplates.FindAsync(Id);

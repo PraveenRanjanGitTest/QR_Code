@@ -1,29 +1,28 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dttl.Qr.Repository
 {
     public class VCardService : IVCardService
     {
         private readonly DbContextClass _dbContext;
+
         public VCardService(DbContextClass dbContext)
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<VCardQRCode>> GetVCardList()
         {
             return await _dbContext._vCardQRCodes.ToListAsync();
         }
+
         public async Task<VCardQRCode> GetVCardById(int Id)
         {
             return await _dbContext._vCardQRCodes.FirstOrDefaultAsync(m => m.VCardId == Id);
         }
+
         public async Task<VCardQRCode> AddVCard(VCardQRCode vCardQRCode)
         {
             var result = await _dbContext.AddAsync(vCardQRCode);
@@ -37,6 +36,7 @@ namespace Dttl.Qr.Repository
             await _dbContext.SaveChangesAsync();
             return result.Entity;
         }
+
         public async Task<VCardQRCode> DeleteVCard(int Id)
         {
             var result = await _dbContext._vCardQRCodes.FindAsync(Id);

@@ -1,9 +1,6 @@
-﻿using Dttl.Qr.Data;
-using Dttl.Qr.Model;
+﻿using Dttl.Qr.Model;
 using Dttl.Qr.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 
 namespace Dttl.Qr.Service
 {

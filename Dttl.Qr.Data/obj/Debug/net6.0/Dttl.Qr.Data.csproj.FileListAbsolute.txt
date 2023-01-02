@@ -1,0 +1,15 @@
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.deps.json
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.dll
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.pdb
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Model.dll
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Model.pdb
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.AssemblyReference.cache
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.AssemblyInfoInputs.cache
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.AssemblyInfo.cs
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.CoreCompileInputs.cache
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.CopyComplete
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.dll
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\refint\Dttl.Qr.Data.dll
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.pdb
+C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\ref\Dttl.Qr.Data.dll

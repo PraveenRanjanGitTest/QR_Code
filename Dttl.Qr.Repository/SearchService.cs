@@ -2,17 +2,18 @@
 using Dttl.Qr.Model;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Dttl.Qr.Repository
 {
     public class SearchService : ISearchService
     {
         private readonly DbContextClass _dbContext;
+
         public SearchService(DbContextClass dbContext)
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<FilterData>> GetSearchByFilter(SearchFilter searchFilter)
         {
             var parameter = new List<SqlParameter>();

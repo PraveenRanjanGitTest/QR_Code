@@ -1,5 +1,4 @@
-﻿using Dttl.Qr.Data;
-using Dttl.Qr.Model;
+﻿using Dttl.Qr.Model;
 using Dttl.Qr.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +9,7 @@ namespace Dttl.Qr.Service.Controllers
     public class SearchController : BaseController
     {
         private readonly ISearchService _searchService;
+
         public SearchController(ISearchService searchService, ILogger<SearchController> logger) : base(logger)
         {
             _searchService = searchService;

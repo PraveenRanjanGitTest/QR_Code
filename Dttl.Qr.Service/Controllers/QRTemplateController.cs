@@ -9,6 +9,7 @@ namespace Dttl.Qr.Service
     public class QRTemplateController : BaseController
     {
         private readonly IQRTemplateService _qRTemplateService;
+
         public QRTemplateController(IQRTemplateService qRTemplateService, ILogger<QRTemplateController> logger) : base(logger)
         {
             _qRTemplateService = qRTemplateService;
