@@ -25,9 +25,16 @@ namespace Dttl.Qr.Repository
 
         public async Task<VCardQRCode> AddVCard(VCardQRCode vCardQRCode)
         {
-            var result = await _dbContext.AddAsync(vCardQRCode);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            try
+            {
+                var result = await _dbContext.AddAsync(vCardQRCode);
+                await _dbContext.SaveChangesAsync();
+                return result.Entity;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<VCardQRCode> UpdateVCarde(VCardQRCode vCardQRCode)

@@ -13,3 +13,18 @@ C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Util\obj\Debug\net6.0\
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Util\obj\Debug\net6.0\refint\Dttl.Qr.Util.dll
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.pdb
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Util\obj\Debug\net6.0\ref\Dttl.Qr.Util.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\bin\Debug\net6.0\Dttl.Qr.Util.deps.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\bin\Debug\net6.0\Dttl.Qr.Util.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\bin\Debug\net6.0\Dttl.Qr.Util.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\bin\Debug\net6.0\Dttl.Qr.Model.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\bin\Debug\net6.0\Dttl.Qr.Model.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.csproj.AssemblyReference.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.AssemblyInfoInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.AssemblyInfo.cs
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.csproj.CoreCompileInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.csproj.CopyComplete
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\refint\Dttl.Qr.Util.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\Dttl.Qr.Util.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Util\obj\Debug\net6.0\ref\Dttl.Qr.Util.dll

@@ -3263,19 +3263,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo India\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Repository\\Dttl.Qr.Repository.csproj",
+      "projectUniqueName": "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Repository\\Dttl.Qr.Repository.csproj",
       "projectName": "Dttl.Qr.Repository",
-      "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Repository\\Dttl.Qr.Repository.csproj",
-      "packagesPath": "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Repository\\obj\\",
+      "projectPath": "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Repository\\Dttl.Qr.Repository.csproj",
+      "packagesPath": "C:\\Users\\Lenovo India\\.nuget\\packages\\",
+      "outputPath": "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Repository\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\senthil.gunasekaran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo India\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3289,11 +3294,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Data\\Dttl.Qr.Data.csproj": {
-              "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Data\\Dttl.Qr.Data.csproj"
+            "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Data\\Dttl.Qr.Data.csproj": {
+              "projectPath": "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Data\\Dttl.Qr.Data.csproj"
             },
-            "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj": {
-              "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj"
+            "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj": {
+              "projectPath": "D:\\Kanini Application\\QRCodeGeneration_\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj"
             }
           }
         }

@@ -15,3 +15,20 @@ C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Repository\obj\Debug\n
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Repository\obj\Debug\net6.0\refint\Dttl.Qr.Repository.dll
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.pdb
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Repository\obj\Debug\net6.0\ref\Dttl.Qr.Repository.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Repository.deps.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Repository.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Repository.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Data.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Model.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Data.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\bin\Debug\net6.0\Dttl.Qr.Model.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.csproj.AssemblyReference.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.AssemblyInfoInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.AssemblyInfo.cs
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.csproj.CoreCompileInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.csproj.CopyComplete
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\refint\Dttl.Qr.Repository.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\Dttl.Qr.Repository.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Repository\obj\Debug\net6.0\ref\Dttl.Qr.Repository.dll

@@ -13,3 +13,18 @@ C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\refint\Dttl.Qr.Data.dll
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.pdb
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.Data\obj\Debug\net6.0\ref\Dttl.Qr.Data.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.deps.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Data.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Model.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\bin\Debug\net6.0\Dttl.Qr.Model.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.AssemblyReference.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.AssemblyInfoInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.AssemblyInfo.cs
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.CoreCompileInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.csproj.CopyComplete
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\refint\Dttl.Qr.Data.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\Dttl.Qr.Data.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.Data\obj\Debug\net6.0\ref\Dttl.Qr.Data.dll

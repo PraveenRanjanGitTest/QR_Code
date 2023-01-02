@@ -12,12 +12,10 @@ namespace Dttl.Qr.Data
         {
             Configuration = configuration;
         }
-
         protected override void OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder options)
         {
             options.UseSqlServer(Configuration.GetConnectionString("CS"));
         }
-
         public DbSet<QRTemplate> _qRTemplates { get; set; }
         public DbSet<QrCode> _qrCode { get; set; }
         public DbSet<VCardQRCode> _vCardQRCodes { get; set; }

@@ -30,3 +30,35 @@ C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.TestProject\obj\Debug\
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.pdb
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.genruntimeconfig.cache
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.TestProject\obj\Debug\net6.0\ref\Dttl.Qr.TestProject.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.TestProject.exe
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\ProfilePhoto.jpg
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.TestProject.deps.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.TestProject.runtimeconfig.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.TestProject.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.TestProject.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.Model.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.Util.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.Model.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\bin\Debug\net6.0\Dttl.Qr.Util.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.csproj.AssemblyReference.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.AssemblyInfoInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.AssemblyInfo.cs
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.csproj.CoreCompileInputs.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.csproj.CopyComplete
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\refint\Dttl.Qr.TestProject.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.pdb
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\Dttl.Qr.TestProject.genruntimeconfig.cache
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.TestProject\obj\Debug\net6.0\ref\Dttl.Qr.TestProject.dll
