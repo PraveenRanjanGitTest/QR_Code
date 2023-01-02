@@ -627,19 +627,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shubham.sathe\\.nuget\\packages\\": {}
+    "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\Dttl.Qr.Util.csproj",
+      "projectUniqueName": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\Dttl.Qr.Util.csproj",
       "projectName": "Dttl.Qr.Util",
-      "projectPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\Dttl.Qr.Util.csproj",
-      "packagesPath": "C:\\Users\\shubham.sathe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\obj\\",
+      "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\Dttl.Qr.Util.csproj",
+      "packagesPath": "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Util\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\shubham.sathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\senthil.gunasekaran\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -653,8 +653,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj": {
-              "projectPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj"
+            "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj": {
+              "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Model\\Dttl.Qr.Model.csproj"
             }
           }
         }

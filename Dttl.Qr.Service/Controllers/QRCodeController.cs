@@ -16,6 +16,7 @@ namespace Dttl.Qr.Service
         }
 
         [HttpGet("GetQRCodeList")]
+
         public async Task<IActionResult> GetQRCodeList()
         {
             var result = await _qRCodeService.GetQRCodeList();
