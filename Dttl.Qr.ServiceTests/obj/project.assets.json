@@ -10627,19 +10627,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\": {}
+    "C:\\Users\\shubham.sathe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\Dttl.Qr.ServiceTests.csproj",
+      "projectUniqueName": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\Dttl.Qr.ServiceTests.csproj",
       "projectName": "Dttl.Qr.ServiceTests",
-      "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\Dttl.Qr.ServiceTests.csproj",
-      "packagesPath": "C:\\Users\\senthil.gunasekaran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\obj\\",
+      "projectPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\Dttl.Qr.ServiceTests.csproj",
+      "packagesPath": "C:\\Users\\shubham.sathe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.ServiceTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\senthil.gunasekaran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shubham.sathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10653,8 +10653,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Service\\Dttl.Qr.Service.csproj": {
-              "projectPath": "C:\\Users\\senthil.gunasekaran\\Source\\Repos\\QR_Code\\Dttl.Qr.Service\\Dttl.Qr.Service.csproj"
+            "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Service\\Dttl.Qr.Service.csproj": {
+              "projectPath": "C:\\Users\\shubham.sathe\\Source\\Repos\\QR_Code\\Dttl.Qr.Service\\Dttl.Qr.Service.csproj"
             }
           }
         }
