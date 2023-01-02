@@ -5,6 +5,9 @@ namespace Dttl.Qr.Service
 {
     public class Program
     {
+        /*
+         * Start Application
+         */
         public static void Main(string[] args)
         {
             var buildedApp = BuildQRCodeGenerationApp(args);
