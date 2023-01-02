@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Dttl.Qr.Data/obj
+/.vs
+/Dttl.Qr.Model/obj
+/Dttl.Qr.Repository/obj
+/Dttl.Qr.Service/obj
+/Dttl.Qr.ServiceTests/bin/Debug/net6.0
+/Dttl.Qr.ServiceTests/obj/Debug/net6.0
+/Dttl.Qr.ServiceTests/obj
+/Dttl.Qr.TestProject/obj/Debug/net6.0
+/Dttl.Qr.TestProject/obj
+/Dttl.Qr.Util/obj/Debug/net6.0
+/Dttl.Qr.Util/obj
+/.gitignore
