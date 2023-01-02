@@ -1,5 +1,7 @@
 ﻿USE [QRCodeGenerator]
 
+// DataBase Test
+
 CREATE TABLE [dbo].[QRCode](
 	[QRCodeId] [int] NOT NULL,
 	[TemplateId] [int] NULL,

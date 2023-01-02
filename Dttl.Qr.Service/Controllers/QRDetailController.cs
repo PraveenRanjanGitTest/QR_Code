@@ -40,29 +40,19 @@ namespace Dttl.Qr.Service
         [HttpPost("AddQRDetails")]
         public async Task<IActionResult> AddQRDetails([FromBody] QRDetails qRDetails)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var result = await _qRDetailService.AddQRDetails(qRDetails);
                 return StatusCode(StatusCodes.Status201Created, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            
         }
 
         [HttpPut("UpdateQReDetails")]
         public async Task<IActionResult> UpdateQReDetails([FromBody] QRDetails qRDetails)
         {
-            if (ModelState.IsValid)
-            {
+           
                 var result = await _qRDetailService.UpdateQReDetails(qRDetails);
                 return StatusCode(StatusCodes.Status200OK, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+           
         }
 
         [HttpDelete("DeleteQRDetails")]
