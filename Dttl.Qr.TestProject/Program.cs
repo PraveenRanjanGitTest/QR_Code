@@ -17,4 +17,6 @@ VCardQRCode c = new()
     UploadImage = await System.IO.File.ReadAllBytesAsync(fileName)
 };
 
+// Test
+
 File.WriteAllText("Vcard.vcf", VCardUtil.GetVCard(c));
