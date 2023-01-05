@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 type TemplateProps = {
     forecolor: string;
     bgcolor: string;
@@ -14,11 +15,16 @@ function TemplateComponent(template: TemplateProps) {
         <>
             <h1>Welcome {template.forecolor}</h1>
             <h1>Welcome {template.size}</h1>
+
         </>
     );
 
 }
 
 export default TemplateComponent;
+
+
+
+
 
 
