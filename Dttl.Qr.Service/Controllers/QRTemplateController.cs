@@ -1,5 +1,6 @@
 ﻿using Dttl.Qr.Model;
 using Dttl.Qr.Repository;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dttl.Qr.Service
@@ -19,63 +20,49 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetQRTemplateList()
         {
             var result = await _qRTemplateService.GetQRTemplateList();
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return NotFound("Template Not Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpGet("GetQRTemplateListById")]
         public async Task<IActionResult> GetQRTemplateListById(int Id)
         {
             var result = await _qRTemplateService.GetQRTemplateListById(Id);
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return NotFound("Template Not Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpPost("AddQRTemplate")]
         public async Task<IActionResult> AddQRTemplate([FromBody] QRTemplate qRTemplate)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _qRTemplateService.AddQRTemplate(qRTemplate);
-                return StatusCode(StatusCodes.Status201Created, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _qRTemplateService.AddQRTemplate(qRTemplate);
+            return Ok("Data Save Successfully");
         }
 
         [HttpPut("UpdateQRTemplate")]
         public async Task<IActionResult> UpdateQRTemplate([FromBody] QRTemplate qRTemplate)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _qRTemplateService.AddQRTemplate(qRTemplate);
-                return StatusCode(StatusCodes.Status200OK, qRTemplate);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _qRTemplateService.UpdateQRTemplate(qRTemplate);
+            return Ok("Data Updated Successfully");
         }
 
         [HttpDelete("DeleteQRTemplate")]
         public async Task<IActionResult> DeleteQRTemplate(int Id)
         {
             var result = await _qRTemplateService.DeleteQRTemplate(Id);
-            if (result == null)
+            if (result == 1)
             {
-                return NotFound();
+                return Ok("Data Deleted Successfully");
             }
             else
             {
-                return StatusCode(StatusCodes.Status200OK, result);
+                return NotFound("Template Id Not Found");
             }
         }
     }

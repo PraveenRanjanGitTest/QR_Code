@@ -15,6 +15,18 @@ namespace Dttl.Qr.Service
         {
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
+
+            //Enable Cors
+            var devCorsPolicy = "devCorsPolicy";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(devCorsPolicy, builder =>
+                {
+                    //builder.WithOrigins("https://localhost:7268").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddDbContext<DbContextClass>();
             services.AddScoped<IQRCodeService, QRCodeService>();
             services.AddScoped<IQRTemplateService, QRTemplateService>();
@@ -35,6 +47,7 @@ namespace Dttl.Qr.Service
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseCors("devCorsPolicy");
             }
             app.UseHttpsRedirection();
             app.UseAuthorization();

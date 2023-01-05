@@ -177,18 +177,18 @@ C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.ServiceTests\obj\Debug
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.ServiceTests\obj\Debug\net6.0\Dttl.Qr.ServiceTests.genruntimeconfig.cache
 C:\Users\senthil.gunasekaran\Source\Repos\QR_Code\Dttl.Qr.ServiceTests\obj\Debug\net6.0\ref\Dttl.Qr.ServiceTests.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\CoverletSourceRootsMapping
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\testhost.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.deps.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.runtimeconfig.json
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\appsettings.Development.json
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\appsettings.json
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.exe
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\testhost.exe
-D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\testhost.dll
+D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.TestPlatform.AdapterUtilities.dll
-D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.deps.json
-D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.runtimeconfig.json
-D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.Service.exe
-D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.ServiceTests.deps.json
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.ServiceTests.runtimeconfig.json
 D:\Kanini Application\QRCodeGeneration_\Dttl.Qr.ServiceTests\bin\Debug\net6.0\Dttl.Qr.ServiceTests.dll

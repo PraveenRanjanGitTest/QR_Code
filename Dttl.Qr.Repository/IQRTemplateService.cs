@@ -6,12 +6,12 @@ namespace Dttl.Qr.Repository
     {
         public Task<List<QRTemplate>> GetQRTemplateList();
 
-        public Task<QRTemplate> GetQRTemplateListById(int Id);
+        public Task<List<QRTemplate>> GetQRTemplateListById(int Id);
 
-        public Task<QRTemplate> AddQRTemplate(QRTemplate qRTemplate);
+        public Task<int> AddQRTemplate(QRTemplate qRTemplate);
 
-        public Task<QRTemplate> UpdateQRTemplate(QRTemplate qRTemplate);
+        public Task<int> UpdateQRTemplate(QRTemplate qRTemplate);
 
-        public Task<QRTemplate> DeleteQRTemplate(int Id);
+        public Task<int> DeleteQRTemplate(int Id);
     }
 }
