@@ -12,17 +12,18 @@ type TemplateProps = {
 }
 
 class TemplateComponent extends React.Component<TemplateProps> {
-
-    state: TemplateProps = {
-        ForeColor: "0xFFFFFF",
-        BackgroundColor: "0x000000",
-        Height: 2,
-        Width: 2,
-        Logo: '',
-        TemplateName: 'title',
-        CreatedBy: 'user'
-    };
-
+    constructor(props: TemplateProps) {
+        super(props);
+        this.state = {
+            ForeColor: "0xFFFFFF",
+            BackgroundColor: "0x000000",
+            Height: 2,
+            Width: 2,
+            Logo: '',
+            TemplateName: 'title',
+            CreatedBy: 'user'
+        }
+    }
 
     fillData() {
         axios.post('https://localhost:7268/api/QRTemplate/AddQRTemplate', {
