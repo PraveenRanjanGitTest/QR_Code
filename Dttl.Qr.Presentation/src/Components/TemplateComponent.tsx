@@ -26,14 +26,27 @@ class TemplateComponent extends React.Component<TemplateProps> {
     }
 
     fillData() {
+
+        let axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*",
+            }
+        };
+        var postData = {
+            ForeColor: "0xFFFFFF",
+            BackgroundColor: "0x000000",
+            Height: 2,
+            Width: 2,
+            Logo: '',
+            TemplateName: 'title',
+            CreatedBy: 'user'
+        };
+
         axios.post('https://localhost:7268/api/QRTemplate/AddQRTemplate', {
-            ForeColor: this.props.ForeColor,
-            BackgroundColor: this.props.BackgroundColor,
-            Height: this.props.Height,
-            Width: this.props.Width,
-            Logo: this.props.Logo,
-            TemplateName: this.props.TemplateName,
-            CreatedBy: this.props.CreatedBy,
+            axiosConfig,
+            postData
+            
         })
             .then(function (response) {
                 console.log(response);

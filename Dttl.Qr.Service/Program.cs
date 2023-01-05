@@ -18,17 +18,21 @@ namespace Dttl.Qr.Service
         {
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
+
             services.AddDbContext<DbContextClass>();
+
             services.AddScoped<IQRCodeService, QRCodeService>();
             services.AddScoped<IQRTemplateService, QRTemplateService>();
             services.AddScoped<IQRDetailService, QRDetailService>();
             services.AddScoped<IURLService, URLService>();
             services.AddScoped<IVCardService, VCardService>();
             services.AddScoped<ISearchService, SearchService>();
+
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddApplicationInsightsTelemetry();
+
             return builder.Build();
         }
 
