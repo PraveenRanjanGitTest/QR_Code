@@ -27,32 +27,28 @@ class TemplateComponent extends React.Component<TemplateProps> {
 
     fillData() {
 
-        let axiosConfig = {
+        const templatedata = {
+            templateName: 'Senthil API Check',
+            height: '4.5',
+            width: '8.5',
+            foreColor: '#0000FF',
+            backgroundColor: '#00FFFF',
+            logo: 'test',
+            createdBy: 'Praveen Ranjan'
+        }
+        const url = "https://localhost:7268/api/QRTemplate/AddQRTemplate"
+        fetch(url, {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json;charset=UTF-8',
-                "Access-Control-Allow-Origin": "*",
-            }
-        };
-        var postData = {
-            ForeColor: "0xFFFFFF",
-            BackgroundColor: "0x000000",
-            Height: 2,
-            Width: 2,
-            Logo: '',
-            TemplateName: 'title',
-            CreatedBy: 'user'
-        };
-
-        axios.post('https://localhost:7268/api/QRTemplate/AddQRTemplate', {
-            axiosConfig,
-            postData
-            
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(templatedata)
         })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
+            .then(response => {
+                console.log("response", response)
+                if (response.status == 201) {
+                    alert('Data Save Successfully..')
+                }
             })
     }
     render() {
