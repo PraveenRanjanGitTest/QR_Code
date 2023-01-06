@@ -2,14 +2,23 @@
 
 namespace Dttl.Qr.Util
 {
+    /// <summary>
+    ///   This class has the utility functions for xml Hanlding
+    /// </summary>
     public static class XmlUtil
     {
-        public static string SerializeObject<T>(this T toSerialize)
+        /// <summary>Serializes the object.</summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="objectToSerialize"></param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        public static string SerializeObject<T>(this T objectToSerialize)
         {
-            XmlSerializer xmlSerializer = new(toSerialize!.GetType());
+            XmlSerializer xmlSerializer = new(objectToSerialize!.GetType());
 
             using StringWriter textWriter = new();
-            xmlSerializer.Serialize(textWriter, toSerialize);
+            xmlSerializer.Serialize(textWriter, objectToSerialize);
             return textWriter.ToString();
         }
     }

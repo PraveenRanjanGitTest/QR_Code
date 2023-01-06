@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dttl.Qr.Data", "Dttl.Qr.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dttl.Qr.Repository", "Dttl.Qr.Repository\Dttl.Qr.Repository.csproj", "{C74927DF-5C0C-486A-B6BA-CF01E813DB29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dttl.Qr.ServiceTests", "Dttl.Qr.ServiceTests\Dttl.Qr.ServiceTests.csproj", "{90347406-B51D-4468-A0A8-04B485E02C7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dttl.Qr.ServiceTests", "Dttl.Qr.ServiceTests\Dttl.Qr.ServiceTests.csproj", "{90347406-B51D-4468-A0A8-04B485E02C7A}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Dttl.Qr.presentation", "Dttl.Qr.presentation\Dttl.Qr.presentation.esproj", "{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,12 @@ Global
 		{90347406-B51D-4468-A0A8-04B485E02C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90347406-B51D-4468-A0A8-04B485E02C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90347406-B51D-4468-A0A8-04B485E02C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA69C5D9-5AEF-4E11-A96B-A10E5B4EF472}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

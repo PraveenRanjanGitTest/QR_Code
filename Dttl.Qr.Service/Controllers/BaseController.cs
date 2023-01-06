@@ -2,7 +2,8 @@
 
 namespace Dttl.Qr.Service
 {
-    [PerformAudit]
+   
+    [PerformAuditLog]
     [HandleError]
     [ValidateModel]
     public class BaseController : ControllerBase

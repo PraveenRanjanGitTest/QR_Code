@@ -1,10 +1,19 @@
 ﻿using Dttl.Qr.Model;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace Dttl.Qr.Util
 {
+    /// <summary>
+    ///   Class has the utility functions related to VCard format
+    /// </summary>
     public static class VCardUtil
     {
+        /// <summary>Gets the profile photo.</summary>
+        /// <param name="vCardModel">The v card model.</param>
+        /// <returns>
+        ///   string format of the Profile Photo
+        /// </returns>
         private static string GetProfilePhoto(VCardQRCode vCardModel)
         {
             if (vCardModel == null) return string.Empty;
@@ -13,7 +22,13 @@ namespace Dttl.Qr.Util
 
             return Convert.ToBase64String(vCardModel.UploadImage);
         }
+        
 
+        /// <summary>Gets the v card.</summary>
+        /// <param name="vCardModel">The v card model.</param>
+        /// <returns>
+        ///   the string format of the VCard
+        /// </returns>
         public static string GetVCard(VCardQRCode vCardModel)
         {
             if (vCardModel == null) return string.Empty;
