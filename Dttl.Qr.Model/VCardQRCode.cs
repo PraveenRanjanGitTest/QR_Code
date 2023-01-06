@@ -8,7 +8,6 @@ namespace Dttl.Qr.Model
     {
         [Key]
         public int VCardId { get; set; }
-
         public int QRCodeId { get; set; }
         public string? Title { get; set; }
         public string? EmployeeCode { get; set; }

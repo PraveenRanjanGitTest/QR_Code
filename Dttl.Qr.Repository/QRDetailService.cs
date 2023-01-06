@@ -1,5 +1,6 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dttl.Qr.Repository
@@ -15,33 +16,60 @@ namespace Dttl.Qr.Repository
 
         public async Task<List<QRDetails>> GetQRDetailList()
         {
-            return await _dbContext._qRDetails.ToListAsync();
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@QRDetailId", ""));
+            parameter.Add(new SqlParameter("@Type", "FetchDataQRDetails"));
+
+            return await _dbContext._qRDetails
+                  .FromSqlRaw(@"exec [SP_QRDetails] @QRDetailId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<QRDetails> GetQRDetailListById(int Id)
+        public async Task<List<QRDetails>> GetQRDetailListById(int Id)
         {
-            return await _dbContext._qRDetails.FirstOrDefaultAsync(m => m.QRDetailId == Id);
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@QRDetailId", Id));
+            parameter.Add(new SqlParameter("@Type", "FetchDataQRDetailsId"));
+
+            return await _dbContext._qRDetails
+                  .FromSqlRaw(@"exec [SP_QRDetails] @QRDetailId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<QRDetails> AddQRDetails(QRDetails qRDetails)
+        public async Task<int> AddQRDetails(QRDetails qRDetails)
         {
-            var result = await _dbContext.AddAsync(qRDetails);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@QRDetailId", ""));
+            parameter.Add(new SqlParameter("@QRCodeId", qRDetails.QRCodeId));
+            parameter.Add(new SqlParameter("@QRName", qRDetails.QRName));
+            parameter.Add(new SqlParameter("@QRImage", qRDetails.QRImage));
+            parameter.Add(new SqlParameter("@Type", "AddQRDetails"));
+
+            var result = await Task.Run(() => _dbContext.Database
+           .ExecuteSqlRawAsync(@"exec [SP_QRDetailsAddUpdate] @QRDetailId,@QRCodeId,@QRName,@QRImage,@Type", parameter.ToArray()));
+            return result;
         }
 
-        public async Task<QRDetails> UpdateQReDetails(QRDetails qRDetails)
+        public async Task<int> UpdateQReDetails(QRDetails qRDetails)
         {
-            var result = _dbContext._qRDetails.Update(qRDetails);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@QRDetailId", qRDetails.QRDetailId));
+            parameter.Add(new SqlParameter("@QRCodeId", qRDetails.QRCodeId));
+            parameter.Add(new SqlParameter("@QRName", qRDetails.QRName));
+            parameter.Add(new SqlParameter("@QRImage", qRDetails.QRImage));
+            parameter.Add(new SqlParameter("@Type", "UpdateQRDetails"));
+
+            var result = await Task.Run(() => _dbContext.Database
+           .ExecuteSqlRawAsync(@"exec [SP_QRDetailsAddUpdate] @QRDetailId,@QRCodeId,@QRName,@QRImage,@Type", parameter.ToArray()));
+            return result;
         }
 
-        public async Task<QRDetails> DeleteQRDetails(int Id)
+        public async Task<int> DeleteQRDetails(int Id)
         {
-            var result = await _dbContext._qRDetails.FindAsync(Id);
-            _dbContext._qRDetails.Remove(result);
-            await _dbContext.SaveChangesAsync();
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@QRDetailId", Id));
+            parameter.Add(new SqlParameter("@Type", "DeleteQRDetails"));
+
+            var result = await Task.Run(() => _dbContext.Database
+                        .ExecuteSqlRawAsync(@"exec [SP_QRDetails] @QRDetailId,@Type", parameter.ToArray()));
             return result;
         }
     }

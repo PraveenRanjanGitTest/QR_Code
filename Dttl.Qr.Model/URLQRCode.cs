@@ -8,8 +8,8 @@ namespace Dttl.Qr.Model
     {
         [Key]
         public int URLId { get; set; }
-
         public int QRCodeId { get; set; }
+        public string? Title { get; set; }
         public string? Url { get; set; }
         public DateTime? CreatedDate { get; set; }
     }

@@ -3,17 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dttl.Qr.Model
 {
-    [Table("QRCode")]
+    //[Table("QRCode")]
     public class QrCode
     {
         [Key]
         public int QRCodeId { get; set; }
-
         public int TemplateId { get; set; }
-
-        [Required(ErrorMessage = "QR Name is required")]
-        public string? QRName { get; set; }
-
+        public string? QRType { get; set; }
         public bool Static { get; set; }
         public bool Dynamic { get; set; }
         public bool IsActive { get; set; }
@@ -21,6 +17,5 @@ namespace Dttl.Qr.Model
         public DateTime? CreatedDate { get; set; }
         public string? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public DateTime? ExpiryDate { get; set; }
     }
 }

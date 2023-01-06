@@ -22,7 +22,7 @@ namespace Dttl.Qr.Service
             var result = await _qRTemplateService.GetQRTemplateList();
             if (result.Count == 0)
             {
-                return NotFound("Template Not Found");
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
             return Ok(result);
         }
@@ -33,7 +33,7 @@ namespace Dttl.Qr.Service
             var result = await _qRTemplateService.GetQRTemplateListById(Id);
             if (result.Count == 0)
             {
-                return NotFound("Template Not Found");
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
             return Ok(result);
         }
@@ -42,14 +42,14 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> AddQRTemplate([FromBody] QRTemplate qRTemplate)
         {
             var result = await _qRTemplateService.AddQRTemplate(qRTemplate);
-            return Ok("Data Save Successfully");
+            return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
         }
 
         [HttpPut("UpdateQRTemplate")]
         public async Task<IActionResult> UpdateQRTemplate([FromBody] QRTemplate qRTemplate)
         {
             var result = await _qRTemplateService.UpdateQRTemplate(qRTemplate);
-            return Ok("Data Updated Successfully");
+            return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
         [HttpDelete("DeleteQRTemplate")]
@@ -58,11 +58,11 @@ namespace Dttl.Qr.Service
             var result = await _qRTemplateService.DeleteQRTemplate(Id);
             if (result == 1)
             {
-                return Ok("Data Deleted Successfully");
+                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
             }
             else
             {
-                return NotFound("Template Id Not Found");
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
         }
     }

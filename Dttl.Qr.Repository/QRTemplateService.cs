@@ -22,7 +22,7 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@Type", "FetchDataQRTemplate"));
 
             return await _dbContext._qRTemplates
-                  .FromSqlRaw(@"exec SP_QRCode @TemplateId, @Type", parameter.ToArray()).ToListAsync();
+                  .FromSqlRaw(@"exec [SP_QRTemplate] @TemplateId, @Type", parameter.ToArray()).ToListAsync();
         }
 
         public async Task<List<QRTemplate>> GetQRTemplateListById(int Id)
@@ -32,7 +32,7 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@Type", "FetchDataQRTemplateId"));
 
             return await _dbContext._qRTemplates
-                  .FromSqlRaw(@"exec SP_QRCode @TemplateId, @Type", parameter.ToArray()).ToListAsync();
+                  .FromSqlRaw(@"exec [SP_QRTemplate] @TemplateId, @Type", parameter.ToArray()).ToListAsync();
         }
 
         public async Task<int> AddQRTemplate(QRTemplate qRTemplate)
@@ -52,7 +52,7 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@Type", "AddQRTemplate"));
 
             var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCodeAddUpdate] @TemplateId,@TemplateName,@Height,@Width,@ForeColor,@BackgroundColor,@Logo,@IsActive,@IsApproved,@CreatedBy,@ModifiedBy,@Type", parameter.ToArray()));
+           .ExecuteSqlRawAsync(@"exec [SP_QRTemplateAddUpdate] @TemplateId,@TemplateName,@Height,@Width,@ForeColor,@BackgroundColor,@Logo,@IsActive,@IsApproved,@CreatedBy,@ModifiedBy,@Type", parameter.ToArray()));
             return result;
         }
 
@@ -66,14 +66,14 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@ForeColor", qRTemplate.ForeColor));
             parameter.Add(new SqlParameter("@BackgroundColor", qRTemplate.BackgroundColor));
             parameter.Add(new SqlParameter("@Logo", qRTemplate.Logo));
-            parameter.Add(new SqlParameter("@IsActive", true));
-            parameter.Add(new SqlParameter("@IsApproved", true));
+            parameter.Add(new SqlParameter("@IsActive", qRTemplate.IsActive));
+            parameter.Add(new SqlParameter("@IsApproved", qRTemplate.IsApproved));
             parameter.Add(new SqlParameter("@CreatedBy", ""));
             parameter.Add(new SqlParameter("@ModifiedBy", qRTemplate.ModifiedBy));
             parameter.Add(new SqlParameter("@Type", "UpdateQRTemplate"));
 
             var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCodeAddUpdate] @TemplateId,@TemplateName,@Height,@Width,@ForeColor,@BackgroundColor,@Logo,@IsActive,@IsApproved,@CreatedBy,@ModifiedBy,@Type", parameter.ToArray()));
+           .ExecuteSqlRawAsync(@"exec [SP_QRTemplateAddUpdate] @TemplateId,@TemplateName,@Height,@Width,@ForeColor,@BackgroundColor,@Logo,@IsActive,@IsApproved,@CreatedBy,@ModifiedBy,@Type", parameter.ToArray()));
             return result;
         }
 
@@ -83,7 +83,7 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@TemplateId", Id));
             parameter.Add(new SqlParameter("@Type", "DeleteQRTemplate"));
             var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode] @TemplateId,@Type", parameter.ToArray()));
+           .ExecuteSqlRawAsync(@"exec [SP_QRTemplate] @TemplateId,@Type", parameter.ToArray()));
             return result;
         }
     }

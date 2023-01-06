@@ -19,53 +19,49 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetQRDetailList()
         {
             var result = await _qRDetailService.GetQRDetailList();
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpGet("GetQRDetailListById")]
         public async Task<IActionResult> GetQRDetailListById(int Id)
         {
             var result = await _qRDetailService.GetQRDetailListById(Id);
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpPost("AddQRDetails")]
         public async Task<IActionResult> AddQRDetails([FromBody] QRDetails qRDetails)
         {
-            
-                var result = await _qRDetailService.AddQRDetails(qRDetails);
-                return StatusCode(StatusCodes.Status201Created, result);
-            
+            var result = await _qRDetailService.AddQRDetails(qRDetails);
+            return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
         }
 
         [HttpPut("UpdateQReDetails")]
         public async Task<IActionResult> UpdateQReDetails([FromBody] QRDetails qRDetails)
         {
-           
-                var result = await _qRDetailService.UpdateQReDetails(qRDetails);
-                return StatusCode(StatusCodes.Status200OK, result);
-           
+            var result = await _qRDetailService.UpdateQReDetails(qRDetails);
+            return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
         [HttpDelete("DeleteQRDetails")]
         public async Task<IActionResult> DeleteQRDetails(int Id)
         {
             var result = await _qRDetailService.DeleteQRDetails(Id);
-            if (result == null)
+            if (result == 1)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
             }
             else
             {
-                return StatusCode(StatusCodes.Status200OK, result);
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
         }
     }

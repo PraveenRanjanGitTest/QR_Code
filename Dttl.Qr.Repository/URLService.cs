@@ -1,5 +1,6 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dttl.Qr.Repository
@@ -15,33 +16,59 @@ namespace Dttl.Qr.Repository
 
         public async Task<List<URLQRCode>> GetURLQRCodelList()
         {
-            return await _dbContext._uRLQRCodes.ToListAsync();
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@URLId", ""));
+            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_Url"));
+
+            return await _dbContext._uRLQRCodes
+                  .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<URLQRCode> GetURLQRCodeListById(int Id)
+        public async Task<List<URLQRCode>> GetURLQRCodeListById(int Id)
         {
-            return await _dbContext._uRLQRCodes.FirstOrDefaultAsync(m => m.URLId == Id);
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@URLId", Id));
+            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_UrlId"));
+
+            return await _dbContext._uRLQRCodes
+                  .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<URLQRCode> AddURLQRCode(URLQRCode uRLQRCode)
+        public async Task<int> AddURLQRCode(URLQRCode uRLQRCode)
         {
-            var result = await _dbContext.AddAsync(uRLQRCode);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@URLId", ""));
+            parameter.Add(new SqlParameter("@QRCodeId", uRLQRCode.QRCodeId));
+            parameter.Add(new SqlParameter("@Title", uRLQRCode.Title));
+            parameter.Add(new SqlParameter("@Url", uRLQRCode.Url));
+            parameter.Add(new SqlParameter("@Type", "AddQRCode_Url"));
+
+            var result = await Task.Run(() => _dbContext.Database
+           .ExecuteSqlRawAsync(@"exec [SP_QRCode_UrlAddUpdate] @URLId,@QRCodeId,@Title,@Url,@Type", parameter.ToArray()));
+            return result;
         }
 
-        public async Task<URLQRCode> UpdateURLQRCode(URLQRCode uRLQRCode)
+        public async Task<int> UpdateURLQRCode(URLQRCode uRLQRCode)
         {
-            var result = _dbContext._uRLQRCodes.Update(uRLQRCode);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@URLId", uRLQRCode.URLId));
+            parameter.Add(new SqlParameter("@QRCodeId", uRLQRCode.QRCodeId));
+            parameter.Add(new SqlParameter("@Title", uRLQRCode.Title));
+            parameter.Add(new SqlParameter("@Url", uRLQRCode.Url));
+            parameter.Add(new SqlParameter("@Type", "UpdateQRCode_Url"));
+
+            var result = await Task.Run(() => _dbContext.Database
+           .ExecuteSqlRawAsync(@"exec [SP_QRCode_UrlAddUpdate] @URLId,@QRCodeId,@Title,@Url,@Type", parameter.ToArray()));
+            return result;
         }
 
-        public async Task<URLQRCode> DeleteURLQRCode(int Id)
+        public async Task<int> DeleteURLQRCode(int Id)
         {
-            var result = await _dbContext._uRLQRCodes.FindAsync(Id);
-            _dbContext._uRLQRCodes.Remove(result);
-            await _dbContext.SaveChangesAsync();
+            var parameter = new List<SqlParameter>();
+            parameter.Add(new SqlParameter("@URLId", Id));
+            parameter.Add(new SqlParameter("@Type", "DeleteQRCode_Url"));
+            var result = await Task.Run(() => _dbContext.Database
+           .ExecuteSqlRawAsync(@"exec [SP_QRCode_Url] @URLId,@Type", parameter.ToArray()));
             return result;
         }
     }

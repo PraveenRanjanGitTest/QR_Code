@@ -6,12 +6,12 @@ namespace Dttl.Qr.Repository
     {
         public Task<List<URLQRCode>> GetURLQRCodelList();
 
-        public Task<URLQRCode> GetURLQRCodeListById(int Id);
+        public Task<List<URLQRCode>> GetURLQRCodeListById(int Id);
 
-        public Task<URLQRCode> AddURLQRCode(URLQRCode qRTemplate);
+        public Task<int> AddURLQRCode(URLQRCode uRLQRCode);
 
-        public Task<URLQRCode> UpdateURLQRCode(URLQRCode qRTemplate);
+        public Task<int> UpdateURLQRCode(URLQRCode uRLQRCode);
 
-        public Task<URLQRCode> DeleteURLQRCode(int Id);
+        public Task<int> DeleteURLQRCode(int Id);
     }
 }

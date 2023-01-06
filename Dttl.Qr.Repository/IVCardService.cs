@@ -6,12 +6,12 @@ namespace Dttl.Qr.Repository
     {
         public Task<List<VCardQRCode>> GetVCardList();
 
-        public Task<VCardQRCode> GetVCardById(int Id);
+        public Task<List<VCardQRCode>> GetVCardById(int Id);
 
-        public Task<VCardQRCode> AddVCard(VCardQRCode vCardQRCode);
+        public Task<int> AddVCard(VCardQRCode vCardQRCode);
 
-        public Task<VCardQRCode> UpdateVCarde(VCardQRCode vCardQRCode);
+        public Task<int> UpdateVCarde(VCardQRCode vCardQRCode);
 
-        public Task<VCardQRCode> DeleteVCard(int Id);
+        public Task<int> DeleteVCard(int Id);
     }
 }

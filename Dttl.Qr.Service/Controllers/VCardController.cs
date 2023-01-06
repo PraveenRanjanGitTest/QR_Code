@@ -19,63 +19,49 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetVCardList()
         {
             var result = await _vCardService.GetVCardList();
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpGet("GetVCardById")]
         public async Task<IActionResult> GetVCardById(int Id)
         {
             var result = await _vCardService.GetVCardById(Id);
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpPost("AddVCard")]
         public async Task<IActionResult> AddVCard([FromBody] VCardQRCode vCardDetails)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _vCardService.AddVCard(vCardDetails);
-                return StatusCode(StatusCodes.Status201Created, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _vCardService.AddVCard(vCardDetails);
+            return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
         }
 
         [HttpPut("UpdateVCard")]
         public async Task<IActionResult> UpdateVCarde([FromBody] VCardQRCode vCardDetails)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _vCardService.UpdateVCarde(vCardDetails);
-                return StatusCode(StatusCodes.Status200OK, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _vCardService.UpdateVCarde(vCardDetails);
+            return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
         [HttpDelete("DeleteVCard")]
         public async Task<IActionResult> DeleteVCard(int Id)
         {
             var result = await _vCardService.DeleteVCard(Id);
-            if (result == null)
+            if (result == 1)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
             }
             else
             {
-                return StatusCode(StatusCodes.Status200OK, result);
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
         }
     }

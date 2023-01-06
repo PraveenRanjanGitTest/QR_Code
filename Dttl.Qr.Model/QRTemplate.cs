@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dttl.Qr.Model
 {
-    [Table("QRTemplate")]
+    //[Table("QRTemplate")]
     public class QRTemplate
     {
         [Key]

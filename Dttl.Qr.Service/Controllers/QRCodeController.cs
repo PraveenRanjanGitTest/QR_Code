@@ -20,63 +20,49 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetQRCodeList()
         {
             var result = await _qRCodeService.GetQRCodeList();
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpGet("GetQRCodeListById")]
         public async Task<IActionResult> GetQRCodeListById(int Id)
         {
             var result = await _qRCodeService.GetQRCodeListById(Id);
-            if (result == null)
+            if (result.Count == 0)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
-            return StatusCode(StatusCodes.Status200OK, result);
+            return Ok(result);
         }
 
         [HttpPost("AddQRCodes")]
         public async Task<IActionResult> AddQRCodes([FromBody] QrCode qrCode)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _qRCodeService.AddQRCodes(qrCode);
-                return StatusCode(StatusCodes.Status201Created, result);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _qRCodeService.AddQRCodes(qrCode);
+            return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
         }
 
         [HttpPut("UpdateQRCode")]
         public async Task<IActionResult> UpdateQRCode([FromBody] QrCode qRCode)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _qRCodeService.UpdateQRCode(qRCode);
-                return StatusCode(StatusCodes.Status200OK, qRCode);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            var result = await _qRCodeService.UpdateQRCode(qRCode);
+            return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
         [HttpDelete("DeleteQRCodes")]
         public async Task<IActionResult> DeleteQRCodes(int Id)
         {
             var result = await _qRCodeService.DeleteQRCodes(Id);
-            if (result == null)
+            if (result == 1)
             {
-                return NotFound();
+                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
             }
             else
             {
-                return StatusCode(StatusCodes.Status200OK, result);
+                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
         }
     }
