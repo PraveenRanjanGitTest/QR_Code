@@ -8,6 +8,7 @@ namespace Dttl.Qr.Service
         /*
          * Start Application
          */
+        const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public static void Main(string[] args)
         {
             var buildedApp = BuildQRCodeGenerationApp(args);
@@ -16,8 +17,16 @@ namespace Dttl.Qr.Service
         }
         public static WebApplication BuildQRCodeGenerationApp(string[] args)
         {
+           
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
+            services.AddCors(o => o.AddPolicy(MyAllowSpecificOrigins, builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+           
 
             services.AddDbContext<DbContextClass>();
 
@@ -43,6 +52,7 @@ namespace Dttl.Qr.Service
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
