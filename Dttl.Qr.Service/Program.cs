@@ -1,5 +1,6 @@
 ﻿using Dttl.Qr.Data;
-using Dttl.Qr.Repository;
+using Dttl.Qr.Repository.Implementation;
+using Dttl.Qr.Repository.Interface;
 
 namespace Dttl.Qr.Service
 {

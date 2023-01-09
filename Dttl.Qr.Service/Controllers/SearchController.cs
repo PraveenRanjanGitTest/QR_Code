@@ -1,5 +1,5 @@
 ﻿using Dttl.Qr.Model;
-using Dttl.Qr.Repository;
+using Dttl.Qr.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dttl.Qr.Service.Controllers
