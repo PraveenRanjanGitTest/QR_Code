@@ -5,7 +5,6 @@ import { addQrTemplate } from "../Services/QrTemplate"
 import { TemplateProps } from "../Props/TemplateProps";
 
 export const TemplateComponent: React.FC<TemplateProps> = () => {
-
     const [template, setTemplate] = useState({
         ForeColor: "0xFFFFFF",
         BackgroundColor: "0x000000",
