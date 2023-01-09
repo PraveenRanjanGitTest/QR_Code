@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dttl.Qr.Service
 {
-   
     [PerformAuditLog]
     [HandleError]
     [ValidateModel]

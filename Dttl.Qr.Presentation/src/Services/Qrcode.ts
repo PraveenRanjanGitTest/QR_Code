@@ -8,9 +8,8 @@ export const getQrCodeListById = () => {
     return axios.get("https://localhost:7268/api/QRCode/GetQRCodeListById")
 }
 
-export const addQrTemplate = (data:any) => {
-
-    return axios.post("https://localhost:7268/api/QRCode/AddQRCodes",data)
+export const addQrTemplate = (data: any) => {
+    return axios.post("https://localhost:7268/api/QRCode/AddQRCodes", data)
 }
 
 export const updateQr = () => {

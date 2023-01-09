@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getQrDetailList= () => {
+export const getQrDetailList = () => {
     return axios.get("https://localhost:7268/api/QRDetail/GetQRDetailList")
 }
 

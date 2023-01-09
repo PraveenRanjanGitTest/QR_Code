@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { addQrTemplate } from "../Services/QrTemplate"
+import { useState } from "react";
 
 type TemplateProps = {
     ForeColor: string;
@@ -11,60 +12,39 @@ type TemplateProps = {
     TemplateName: string;
 }
 
-class TemplateComponent extends React.Component<TemplateProps> {
-    constructor(props: TemplateProps) {
-        super(props);
-        this.state = {
-            ForeColor: "0xFFFFFF",
-            BackgroundColor: "0x000000",
-            Height: 2,
-            Width: 2,
-            Logo: '',
-            TemplateName: 'title',
-            CreatedBy: 'user'
-        }
-    }
+export const TemplateComponent: React.FC<TemplateProps> = () => {
+    const [template, setTemplate] = useState({
+        ForeColor: "0xFFFFFF",
+        BackgroundColor: "0x000000",
+        Height: 2,
+        Width: 2,
+        Logo: '',
+        TemplateName: 'title',
+        CreatedBy: 'user'
+    })
 
-    fillData() {
-
-        const templatedata = {
-            templateName: 'Senthil API Check',
-            height: '4.5',
-            width: '8.5',
-            foreColor: '#0000FF',
-            backgroundColor: '#00FFFF',
-            logo: 'test',
-            createdBy: 'Praveen Ranjan'
-        }
-        const url = "https://localhost:7268/api/QRTemplate/AddQRTemplate"
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(templatedata)
+    const fillData = () => {
+        addQrTemplate(template
+        ).then(function (response) {
+            console.log(response);
         })
-            .then(response => {
-                console.log("response", response)
-                if (response.status == 201) {
-                    alert('Data Save Successfully..')
-                }
+            .catch(function (error) {
+                console.log(error);
             })
     }
-    render() {
-        return (
-            <div>
-                <h1>{this.props.TemplateName}</h1>
-                <h1>{this.props.ForeColor}</h1>
-                <h1>{this.props.BackgroundColor}</h1>
-                <h1>{this.props.Height}</h1>
-                <h1>{this.props.Width}</h1>
-                <h1>{this.props.Logo}</h1>
-                <button onClick={this.fillData}>Click me</button>
 
-            </div>
-        );
-    }
+    return (
+        <div>
+            <h1>{template.TemplateName}</h1>
+            <h1>{template.ForeColor}</h1>
+            <h1>{template.BackgroundColor}</h1>
+            <h1>{template.Height}</h1>
+            <h1>{template.Width}</h1>
+            <h1>{template.Logo}</h1>
+            <button onClick={fillData}>Click me</button>
+
+        </div>
+    )
 }
 
 export default TemplateComponent;

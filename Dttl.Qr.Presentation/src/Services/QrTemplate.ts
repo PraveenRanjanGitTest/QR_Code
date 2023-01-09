@@ -8,8 +8,8 @@ export const getQrTemplateListById = () => {
     axios.get("https://localhost:7268/api/QRTemplate/GetQRTemplateListById")
 }
 
-export const addQrTemplate = () => {
-    axios.post("https://localhost:7268/api/QRTemplate/AddQRTemplate")
+export const addQrTemplate = (data: any) => {
+    return axios.post("https://localhost:7268/api/QRTemplate/AddQRTemplate", data)
 }
 
 export const updateQrTemplate = () => {
