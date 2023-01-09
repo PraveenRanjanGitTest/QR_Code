@@ -23,7 +23,7 @@ namespace Dttl.Qr.Repository
             parameter.Add(new SqlParameter("@Type", "SearchData"));
 
             var result = await Task.Run(() => _dbContext._filterData
-           .FromSqlRaw(@"exec QR_Code @FromDate, @ToDate, @TemplateName, @Type", parameter.ToArray()).ToListAsync());
+           .FromSqlRaw(@"exec [QR_Search] @FromDate, @ToDate, @TemplateName, @Type", parameter.ToArray()).ToListAsync());
             return result;
         }
     }
