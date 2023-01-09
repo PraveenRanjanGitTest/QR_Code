@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using ActionFilterAttribute = Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute;
 
-namespace Dttl.Qr.Service
+namespace Dttl.Qr.Service.ActionFilters
 {
     public class PerformAuditLogAttribute : ActionFilterAttribute
     {
@@ -13,7 +13,7 @@ namespace Dttl.Qr.Service
 
             if (context.Controller is BaseController)
             {
-                
+
                 var controller = context.Controller as BaseController;
                 controller!._logger.LogInformation(
                     $@"Action: {JsonConvert.SerializeObject(actions)} Parameters: {JsonConvert.SerializeObject(parameters)}"

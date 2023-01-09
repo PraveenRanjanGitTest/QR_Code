@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using ActionFilterAttribute = Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute;
 
-namespace Dttl.Qr.Service
+namespace Dttl.Qr.Service.ActionFilters
 {
     public class ValidateModelAttribute : ActionFilterAttribute
     {
