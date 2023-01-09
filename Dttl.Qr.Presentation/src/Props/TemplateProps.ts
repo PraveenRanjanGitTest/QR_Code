@@ -17,9 +17,6 @@ export interface TemplateProps extends DefaultTemplateProps {
     IsApproved: boolean;
 }
 
-export interface TemplateList  {
-
+export interface TemplateList {
     templates: TemplateProps[];
-  
 }
-
