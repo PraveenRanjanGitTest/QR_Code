@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dttl.Qr.Service.ActionFilters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Dttl.Qr.Service
 {
-   
     [PerformAuditLog]
     [HandleError]
     [ValidateModel]
