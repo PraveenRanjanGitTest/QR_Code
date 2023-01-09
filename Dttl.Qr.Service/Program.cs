@@ -23,7 +23,7 @@ namespace Dttl.Qr.Service
             var services = builder.Services;
             services.AddCors(o => o.AddPolicy(MyAllowSpecificOrigins, builder =>
             {
-                builder.AllowAnyOrigin()
+                builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
@@ -52,9 +52,9 @@ namespace Dttl.Qr.Service
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                app.UseCors("devCorsPolicy");
+                app.UseCors(MyAllowSpecificOrigins);
             }
-            app.UseCors(MyAllowSpecificOrigins);
+           
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
