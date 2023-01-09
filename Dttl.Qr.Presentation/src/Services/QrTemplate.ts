@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getQrTemplateList = () => {
-    axios.get("https://localhost:7268/api/QRTemplate/GetQRTemplateList")
+    return axios.get("https://localhost:7268/api/QRTemplate/GetQRTemplateList")
 }
 
 export const getQrTemplateListById = () => {

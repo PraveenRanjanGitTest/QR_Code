@@ -1,4 +1,4 @@
-export interface TemplateProps {
+export interface DefaultTemplateProps {
     ForeColor: string;
     BackgroundColor: string;
     Height: number;
@@ -8,6 +8,18 @@ export interface TemplateProps {
     TemplateName: string;
 }
 
-export interface TemplateUpdateProps extends TemplateProps {
+export interface TemplateProps extends DefaultTemplateProps {
+    TemplateId: string;
+    CreatedDate: Date;
     ModifiedBy: string;
+    ModifiedDate: Date;
+    IsActive: boolean;
+    IsApproved: boolean;
 }
+
+export interface TemplateList  {
+
+    templates: TemplateProps[];
+  
+}
+
