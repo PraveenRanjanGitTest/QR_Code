@@ -16,7 +16,7 @@ class TemplateComponent extends React.Component<TemplateProps> {
         super(props);
         this.state = {
             ForeColor: "0xFFFFFF",
-            BackgroundColor: "0x000000",
+            BackgroundColor: "white",
             Height: 2,
             Width: 2,
             Logo: '',
