@@ -16,7 +16,7 @@ export const TemplateComponent: React.FC = () => {
                     })
             })
 
-    const [template] = useState<DefaultTemplateProps>({
+    const [template, setTemplate] = useState<DefaultTemplateProps>({
         ForeColor: "0xFFFFFF",
         BackgroundColor: "0x000000",
         Height: 2,
@@ -25,7 +25,6 @@ export const TemplateComponent: React.FC = () => {
         TemplateName: 'title',
         CreatedBy: 'user'
     })
-    
 
     const fillData = () => {
         addQrTemplate(template
@@ -39,8 +38,16 @@ export const TemplateComponent: React.FC = () => {
 
     return (
         <div>
-            
-            <h1>{template.TemplateName}</h1>
+
+            <input type="text" onChange={
+                e => {
+                    template.TemplateName = e.target.value
+
+                    setTemplate(template);
+                }
+            } value={template.TemplateName}></input>
+
+            <input type="text" onChange={e => template.CreatedBy = e.target.value} value={template.CreatedBy}></input>
             <h1>{template.ForeColor}</h1>
             <h1>{template.BackgroundColor}</h1>
             <h1>{template.Height}</h1>
