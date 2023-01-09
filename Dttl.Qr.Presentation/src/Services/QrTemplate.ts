@@ -12,8 +12,8 @@ export const addQrTemplate = (data: any) => {
     return axios.post("https://localhost:7268/api/QRTemplate/AddQRTemplate", data)
 }
 
-export const updateQrTemplate = () => {
-    axios.put("https://localhost:7268/api/QRTemplate/UpdateQRTemplate")
+export const updateQrTemplate = (data: any) => {
+    axios.put("https://localhost:7268/api/QRTemplate/UpdateQRTemplate",data)
 }
 
 export const deleteQrTemplate = () => {

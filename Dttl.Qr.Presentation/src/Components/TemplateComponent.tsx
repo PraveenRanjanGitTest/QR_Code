@@ -12,6 +12,8 @@ type TemplateProps = {
     TemplateName: string;
 }
 
+
+
 export const TemplateComponent: React.FC<TemplateProps> = () => {
     const [template, setTemplate] = useState({
         ForeColor: "0xFFFFFF",
