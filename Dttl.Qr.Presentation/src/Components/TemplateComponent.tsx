@@ -2,10 +2,12 @@ import React from 'react';
 import { useState } from "react";
 
 import { addQrTemplate } from "../Services/QrTemplate"
-import { TemplateProps } from "../Props/TemplateProps";
+import { DefaultTemplateProps } from "../Props/DefaultTemplateProps";
 
-export const TemplateComponent: React.FC<TemplateProps> = () => {
-    const [template, setTemplate] = useState({
+export const TemplateComponent: React.FC<DefaultTemplateProps> = () => {
+
+
+    const [template] = useState < DefaultTemplateProps>({
         ForeColor: "0xFFFFFF",
         BackgroundColor: "0x000000",
         Height: 2,
