@@ -1,13 +1,22 @@
 import React from 'react';
 import { useState } from "react";
 
-import { addQrTemplate } from "../Services/QrTemplate"
-import { DefaultTemplateProps } from "../Props/DefaultTemplateProps";
+import { addQrTemplate, getQrTemplateList } from "../Services/QrTemplate"
+import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
 
-export const TemplateComponent: React.FC<DefaultTemplateProps> = () => {
+export const TemplateComponent: React.FC = () => {
+    React.useEffect
+        (
+            () => {
+                getQrTemplateList().then(function (response) {
+                    console.log(response);
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            })
 
-
-    const [template] = useState < DefaultTemplateProps>({
+    const [template] = useState<DefaultTemplateProps>({
         ForeColor: "0xFFFFFF",
         BackgroundColor: "0x000000",
         Height: 2,
@@ -16,6 +25,7 @@ export const TemplateComponent: React.FC<DefaultTemplateProps> = () => {
         TemplateName: 'title',
         CreatedBy: 'user'
     })
+    
 
     const fillData = () => {
         addQrTemplate(template
@@ -29,6 +39,7 @@ export const TemplateComponent: React.FC<DefaultTemplateProps> = () => {
 
     return (
         <div>
+            
             <h1>{template.TemplateName}</h1>
             <h1>{template.ForeColor}</h1>
             <h1>{template.BackgroundColor}</h1>

@@ -1,7 +1,14 @@
-import { DefaultTemplateProps } from "./DefaultTemplateProps";
+export interface DefaultTemplateProps {
+    ForeColor: string;
+    BackgroundColor: string;
+    Height: number;
+    Width: number;
+    Logo: string;
+    CreatedBy: string;
+    TemplateName: string;
+}
 
 export interface TemplateProps extends DefaultTemplateProps {
-    
     TemplateId: string;
     CreatedDate: Date;
     ModifiedBy: string;
@@ -9,3 +16,10 @@ export interface TemplateProps extends DefaultTemplateProps {
     IsActive: boolean;
     IsApproved: boolean;
 }
+
+export interface TemplateList  {
+
+    templates: TemplateProps[];
+  
+}
+
