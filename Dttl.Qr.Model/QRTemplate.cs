@@ -26,7 +26,7 @@ namespace Dttl.Qr.Model
         public string? BackgroundColor { get; set; }
 
         [Required(ErrorMessage = "The Template Logo cannot be blank.")]
-        public byte[]? Logo { get; set; }
+        public string? Logo { get; set; }
 
         public bool? IsActive { get; set; }
         public bool? IsApproved { get; set; }

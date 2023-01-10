@@ -3,7 +3,8 @@ export interface DefaultTemplateProps {
     BackgroundColor: string;
     Height: number;
     Width: number;
-    Logo: string;
+    Logo: any;
+  
     CreatedBy: string;
     TemplateName: string;
 }
