@@ -8,8 +8,8 @@ export const getVcardListById = () => {
     return axios.get("https://localhost:7268/api/VCard/GetVCardById")
 }
 
-export const addVcard = () => {
-    return axios.post("https://localhost:7268/api/VCard/AddVCard")
+export const addVcard = (data: any) => {
+    return axios.post("https://localhost:7268/api/VCard/AddVCard", data)
 }
 
 export const updateVcard = () => {
