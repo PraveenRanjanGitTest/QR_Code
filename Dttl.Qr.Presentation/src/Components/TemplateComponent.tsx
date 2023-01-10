@@ -5,8 +5,6 @@ import { addQrTemplate, getQrTemplateList } from "../Services/QrTemplate"
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
 
 export const TemplateComponent: React.FC = () => {
-    
-
     const [template, setTemplate] = useState<DefaultTemplateProps>({
         ForeColor: "0xFFFFFF",
         BackgroundColor: "0x000000",
@@ -15,29 +13,25 @@ export const TemplateComponent: React.FC = () => {
         Logo: '',
         TemplateName: 'My New Template',
         CreatedBy: 'Kanini User',
-        
     })
 
-    const handleUpload = (event: any)=>
-    {
+    const handleTemplateLogoUpload = (event: any) => {
         if (event.target.files) {
-
-        
-        if (event.target.files[0]) {
-            let reader = new FileReader();
-            reader.readAsDataURL(event.target.files[0]);
-            reader.onload = (e) => {
-                setTemplate((prevState: any) => {
-                    return {
-                        ...prevState,
-                        [event.target.name]: e.target?.result,
-                    };
-                });
-            }
+            if (event.target.files[0]) {
+                let reader = new FileReader();
+                reader.readAsDataURL(event.target.files[0]);
+                reader.onload = (e) => {
+                    setTemplate((prevState: any) => {
+                        return {
+                            ...prevState,
+                            [event.target.name]: e.target?.result,
+                        };
+                    });
+                }
             }
         }
     }
-    const handleChange = (event: any) => {
+    const handleTemplateChanges = (event: any) => {
         const { name, value } = event.target;
         setTemplate((prevState: any) => {
             return {
@@ -45,11 +39,9 @@ export const TemplateComponent: React.FC = () => {
                 [name]: value,
             };
         });
-
-       
     };
 
-    const fillData = () => {
+    const CreateNewTemplate = () => {
         addQrTemplate(template
         ).then(function (response) {
             console.log(response);
@@ -62,17 +54,17 @@ export const TemplateComponent: React.FC = () => {
     return (
         <div>
 
-            <input type="text" name="TemplateName" onChange={handleChange} value={TemplateName}></input>
-            <input type="text" name="CreatedBy" onChange={handleChange} value={CreatedBy}></input>
-            <input type="color" name="ForeColor" onChange={handleChange} value={ForeColor}></input>
-            <input type="color" name="BackgroundColor" onChange={handleChange} value={BackgroundColor}></input>
-            <input type="text" name="Height" onChange={handleChange} value={Height}></input>
-            <input type="text" name="Width" onChange={handleChange} value={Width}></input>
-            <input type="file" accept="image/*" name="Logo" onChange={handleUpload} value=""></input>
+            <input type="text" name="TemplateName" onChange={handleTemplateChanges} value={TemplateName}></input>
+            <input type="text" name="CreatedBy" onChange={handleTemplateChanges} value={CreatedBy}></input>
+            <input type="color" name="ForeColor" onChange={handleTemplateChanges} value={ForeColor}></input>
+            <input type="color" name="BackgroundColor" onChange={handleTemplateChanges} value={BackgroundColor}></input>
+            <input type="text" name="Height" onChange={handleTemplateChanges} value={Height}></input>
+            <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
+            <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload} value=""></input>
 
-            <h1>{template.Logo}</h1>
+            <img src={template.Logo} />
 
-            <button onClick={fillData}>Click me</button>
+            <button onClick={CreateNewTemplate}>Click me</button>
 
         </div>
     )
