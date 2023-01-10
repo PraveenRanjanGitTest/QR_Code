@@ -3,7 +3,6 @@ using Dttl.Qr.Model;
 using Dttl.Qr.Repository.Interface;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Dttl.Qr.Repository.Implementation
 {

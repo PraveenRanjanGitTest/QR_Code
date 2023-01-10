@@ -3,8 +3,8 @@
 namespace Dttl.Qr.Service.Tests
 {
     /// <summary>
-    /// 
-    /// 
+    ///
+    ///
     /// </summary>
     [TestClass()]
     public class ProgramTests

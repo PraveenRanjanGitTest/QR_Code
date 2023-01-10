@@ -13,12 +13,10 @@ namespace Dttl.Qr.Service.ActionFilters
 
             if (context.Controller is BaseController)
             {
-
                 var controller = context.Controller as BaseController;
                 controller!._logger.LogInformation(
                     $@"Action: {JsonConvert.SerializeObject(actions)} Parameters: {JsonConvert.SerializeObject(parameters)}"
                     );
-
             }
             base.OnActionExecuting(context);
         }

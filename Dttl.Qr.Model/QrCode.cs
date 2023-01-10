@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dttl.Qr.Model
 {
@@ -8,6 +7,7 @@ namespace Dttl.Qr.Model
     {
         [Key]
         public int QRCodeId { get; set; }
+
         public int TemplateId { get; set; }
         public string? QRType { get; set; }
         public bool Static { get; set; }

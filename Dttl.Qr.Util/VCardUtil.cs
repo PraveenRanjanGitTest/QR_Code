@@ -1,5 +1,4 @@
 ﻿using Dttl.Qr.Model;
-using System.Net.NetworkInformation;
 using System.Text;
 
 namespace Dttl.Qr.Util
@@ -22,7 +21,6 @@ namespace Dttl.Qr.Util
 
             return Convert.ToBase64String(vCardModel.UploadImage);
         }
-        
 
         /// <summary>Gets the v card.</summary>
         /// <param name="vCardModel">The v card model.</param>

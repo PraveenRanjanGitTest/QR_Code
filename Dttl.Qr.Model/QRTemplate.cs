@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dttl.Qr.Model
 {
@@ -28,6 +27,7 @@ namespace Dttl.Qr.Model
 
         [Required(ErrorMessage = "The Template Logo cannot be blank.")]
         public byte[]? Logo { get; set; }
+
         public bool? IsActive { get; set; }
         public bool? IsApproved { get; set; }
         public string? CreatedBy { get; set; }
