@@ -3,7 +3,6 @@ import { DefaultVCardProps } from '../Props/VCardProps';
 import { addVcard } from '../Services/Vcard';
 
 export function VCardComponent() {
-
     const [VCard, setVCard] = useState<DefaultVCardProps>({
         Title: "Test",
         EmployeeCode: "E123",
@@ -36,7 +35,7 @@ export function VCardComponent() {
                 console.log(error);
             })
     }
-    const { Title, EmployeeCode, FirstName, LastName, UploadImage, Designation, MobileNumber, EmailId, CompanyName, Website, PersonalLinks} = VCard;
+    const { Title, EmployeeCode, FirstName, LastName, UploadImage, Designation, MobileNumber, EmailId, CompanyName, Website, PersonalLinks } = VCard;
     return (
         <div>
 
