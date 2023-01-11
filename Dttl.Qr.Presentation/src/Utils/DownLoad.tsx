@@ -12,10 +12,26 @@ function downloadQrCodeImage(canvasElement: any, imageType: string, width: numbe
 function downloadQrCodePdf(canvasElement: any, type: string, width: number, height: number) {
     const canvas = canvasElement as unknown as HTMLCanvasElement;
 
-    let png = canvas.toDataURL("image/png");
-    const pdf = new jsPDF();
-    pdf.addImage(png, 'JPEG', 0, 0, width, width);
-    pdf.save(nameofthefile + type);
+    const image = canvas.toDataURL('image/jpeg', 1.0);
+    const doc = new jsPDF('p', 'px', 'a4');
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const widthRatio = pageWidth / canvas.width;
+    const heightRatio = pageHeight / canvas.height;
+    const ratio = widthRatio > heightRatio ? heightRatio : widthRatio;
+
+    const canvasWidth = canvas.width * ratio;
+    const canvasHeight = canvas.height * ratio;
+
+    const marginX = (pageWidth - canvasWidth) / 2;
+    const marginY = (pageHeight - canvasHeight) / 2;
+
+    doc.addImage(image, 'JPEG', marginX, marginY, canvasWidth, canvasHeight);
+
+  
+
+    doc.save(nameofthefile + type);
 }
 function downloadQrCodeSvg(imagesrc: string, type: string, width: number, height: number) {
     const anchor = document.createElement("a");
