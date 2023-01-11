@@ -30,7 +30,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetVCardById(int Id)
         {
             var result = await _vCardService.GetVCardById(Id);
-            if (result.Count == 0)
+            if (result == null)
             {
                 return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
@@ -55,14 +55,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> DeleteVCard(int Id)
         {
             var result = await _vCardService.DeleteVCard(Id);
-            if (result == 1)
-            {
-                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
-            }
+            return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Dttl.Qr.Repository.Interface
     {
         public Task<List<VCardQRCode>> GetVCardList();
 
-        public Task<List<VCardQRCode>> GetVCardById(int Id);
+        public Task<VCardQRCode> GetVCardById(int Id);
 
         public Task<int> AddVCard(VCardQRCode vCardQRCode);
 

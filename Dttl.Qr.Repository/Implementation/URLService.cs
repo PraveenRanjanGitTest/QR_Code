@@ -14,63 +14,47 @@ namespace Dttl.Qr.Repository.Implementation
         {
             _dbContext = dbContext;
         }
-
         public async Task<List<UrlqrCode>> GetURLQRCodelList()
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@URLId", ""));
-            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_Url"));
-
-            return await _dbContext._uRLQRCodes
-                  .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
+            return await _dbContext._uRLQRCodes.ToListAsync();
         }
-
-        public async Task<List<UrlqrCode>> GetURLQRCodeListById(int Id)
+        public async Task<UrlqrCode> GetURLQRCodeListById(int Id)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@URLId", Id));
-            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_UrlId"));
-
-            return await _dbContext._uRLQRCodes
-                  .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
+            return await _dbContext._uRLQRCodes.FirstOrDefaultAsync(m => m.URLId == Id);
         }
 
         public async Task<int> AddURLQRCode(UrlqrCode uRLQRCode)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@URLId", ""));
-            parameter.Add(new SqlParameter("@QRCodeId", uRLQRCode.QRCodeId));
-            parameter.Add(new SqlParameter("@Title", uRLQRCode.Title));
-            parameter.Add(new SqlParameter("@Url", uRLQRCode.Url));
-            parameter.Add(new SqlParameter("@Type", "AddQRCode_Url"));
+            var _urlqrCode = new UrlqrCode();
+            _urlqrCode.QRCodeId = uRLQRCode.QRCodeId;
+            _urlqrCode.Title = uRLQRCode.Title;
+            _urlqrCode.Url = uRLQRCode.Url;
+            _urlqrCode.CreatedDate = DateTime.UtcNow;
 
-            var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode_UrlAddUpdate] @URLId,@QRCodeId,@Title,@Url,@Type", parameter.ToArray()));
-            return result;
+            var result = await _dbContext.AddAsync(_urlqrCode);
+            await _dbContext.SaveChangesAsync();
+            return result.Entity.URLId;
         }
 
         public async Task<int> UpdateURLQRCode(UrlqrCode uRLQRCode)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@URLId", uRLQRCode.URLId));
-            parameter.Add(new SqlParameter("@QRCodeId", uRLQRCode.QRCodeId));
-            parameter.Add(new SqlParameter("@Title", uRLQRCode.Title));
-            parameter.Add(new SqlParameter("@Url", uRLQRCode.Url));
-            parameter.Add(new SqlParameter("@Type", "UpdateQRCode_Url"));
+            var _urlqrCode = new UrlqrCode();
+            _urlqrCode.URLId = uRLQRCode.URLId;
+            _urlqrCode.QRCodeId = uRLQRCode.QRCodeId;
+            _urlqrCode.Title = uRLQRCode.Title;
+            _urlqrCode.Url = uRLQRCode.Url;
 
-            var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode_UrlAddUpdate] @URLId,@QRCodeId,@Title,@Url,@Type", parameter.ToArray()));
-            return result;
+            var result = _dbContext._uRLQRCodes.Update(_urlqrCode);
+            await _dbContext.SaveChangesAsync();
+            return result.Entity.URLId;
         }
 
         public async Task<int> DeleteURLQRCode(int Id)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@URLId", Id));
-            parameter.Add(new SqlParameter("@Type", "DeleteQRCode_Url"));
-            var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode_Url] @URLId,@Type", parameter.ToArray()));
-            return result;
+            var result = await _dbContext._uRLQRCodes.FindAsync(Id);
+            _dbContext._uRLQRCodes.Remove(result);
+            await _dbContext.SaveChangesAsync();
+            return result.URLId;
         }
     }
 }

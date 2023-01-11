@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dttl.Qr.Model
 {
-    //[Table("QRCode")]
+    [Table("QRCodeMaster")]
     public class QrCode
     {
         [Key]
@@ -10,8 +11,7 @@ namespace Dttl.Qr.Model
 
         public int TemplateId { get; set; }
         public string? QRType { get; set; }
-        public bool Static { get; set; }
-        public bool Dynamic { get; set; }
+        public bool IsDynamic { get; set; }
         public bool IsActive { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }

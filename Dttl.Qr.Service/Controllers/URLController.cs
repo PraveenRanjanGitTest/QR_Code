@@ -30,7 +30,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetURLQRCodeListById(int Id)
         {
             var result = await _uRLService.GetURLQRCodeListById(Id);
-            if (result.Count == 0)
+            if (result == null)
             {
                 return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
@@ -55,14 +55,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> DeleteURLQRCode(int Id)
         {
             var result = await _uRLService.DeleteURLQRCode(Id);
-            if (result == 1)
-            {
-                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
-            }
+            return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
         }
     }
 }

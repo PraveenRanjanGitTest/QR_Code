@@ -17,79 +17,63 @@ namespace Dttl.Qr.Repository.Implementation
 
         public async Task<List<VCardQRCode>> GetVCardList()
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@VCardId", ""));
-            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_VCard"));
-
-            return await _dbContext._vCardQRCodes
-                  .FromSqlRaw(@"exec [SP_QRCode_VCard] @VCardId, @Type", parameter.ToArray()).ToListAsync();
+            return await _dbContext._vCardQRCodes.ToListAsync();
         }
 
-        public async Task<List<VCardQRCode>> GetVCardById(int Id)
+        public async Task<VCardQRCode> GetVCardById(int Id)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@VCardId", Id));
-            parameter.Add(new SqlParameter("@Type", "FetchDataQRCode_VCard"));
-
-            return await _dbContext._vCardQRCodes
-                  .FromSqlRaw(@"exec [SP_QRCode_VCard] @VCardId, @Type", parameter.ToArray()).ToListAsync();
+            return await _dbContext._vCardQRCodes.FirstOrDefaultAsync(m => m.VCardId == Id);
         }
 
         public async Task<int> AddVCard(VCardQRCode vCardQRCode)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@VCardId", ""));
-            parameter.Add(new SqlParameter("@QRCodeId", vCardQRCode.QRCodeId));
-            parameter.Add(new SqlParameter("@Title", vCardQRCode.Title));
-            parameter.Add(new SqlParameter("@EmployeeCode", vCardQRCode.EmployeeCode));
-            parameter.Add(new SqlParameter("@FirstName", vCardQRCode.FirstName));
-            parameter.Add(new SqlParameter("@LastName", vCardQRCode.LastName));
-            parameter.Add(new SqlParameter("@UploadImage", vCardQRCode.UploadImage));
-            parameter.Add(new SqlParameter("@Designation", vCardQRCode.Designation));
-            parameter.Add(new SqlParameter("@MobileNo", vCardQRCode.MobileNo));
-            parameter.Add(new SqlParameter("@EmailId", vCardQRCode.EmailId));
-            parameter.Add(new SqlParameter("@CompanyName", vCardQRCode.CompanyName));
-            parameter.Add(new SqlParameter("@Website", vCardQRCode.Website));
-            parameter.Add(new SqlParameter("@PersonalLinks", vCardQRCode.PersonalLinks));
-            parameter.Add(new SqlParameter("@Type", "AddQRCode_VCard"));
+            var _vcardqrcode = new VCardQRCode();
+            _vcardqrcode.QRCodeId = vCardQRCode.QRCodeId;
+            _vcardqrcode.Title = vCardQRCode.Title;
+            _vcardqrcode.EmployeeCode = vCardQRCode.EmployeeCode;
+            _vcardqrcode.FirstName = vCardQRCode.FirstName;
+            _vcardqrcode.LastName = vCardQRCode.LastName;
+            _vcardqrcode.UploadImage = vCardQRCode.UploadImage;
+            _vcardqrcode.Designation = vCardQRCode.Designation;
+            _vcardqrcode.MobileNo = vCardQRCode.MobileNo;
+            _vcardqrcode.EmailId = vCardQRCode.EmailId;
+            _vcardqrcode.CompanyName = vCardQRCode.CompanyName;
+            _vcardqrcode.Website = vCardQRCode.Website;
+            _vcardqrcode.PersonalLinks = vCardQRCode.PersonalLinks;
+            _vcardqrcode.CreatedDate = DateTime.UtcNow;
 
-            var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode_VCardAddUpdate] @VCardId,@QRCodeId,@Title,@EmployeeCode,@FirstName,@LastName,@UploadImage,@Designation,@MobileNo,@EmailId,@CompanyName,@Website,@PersonalLinks,@Type", parameter.ToArray()));
-            return result;
+            var result = await _dbContext.AddAsync(_vcardqrcode);
+            await _dbContext.SaveChangesAsync();
+            return result.Entity.VCardId;
         }
 
         public async Task<int> UpdateVCarde(VCardQRCode vCardQRCode)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@VCardId", vCardQRCode.VCardId));
-            parameter.Add(new SqlParameter("@QRCodeId", vCardQRCode.QRCodeId));
-            parameter.Add(new SqlParameter("@Title", vCardQRCode.Title));
-            parameter.Add(new SqlParameter("@EmployeeCode", vCardQRCode.EmployeeCode));
-            parameter.Add(new SqlParameter("@FirstName", vCardQRCode.FirstName));
-            parameter.Add(new SqlParameter("@LastName", vCardQRCode.LastName));
-            parameter.Add(new SqlParameter("@UploadImage", vCardQRCode.UploadImage));
-            parameter.Add(new SqlParameter("@Designation", vCardQRCode.Designation));
-            parameter.Add(new SqlParameter("@MobileNo", vCardQRCode.MobileNo));
-            parameter.Add(new SqlParameter("@EmailId", vCardQRCode.EmailId));
-            parameter.Add(new SqlParameter("@CompanyName", vCardQRCode.CompanyName));
-            parameter.Add(new SqlParameter("@Website", vCardQRCode.Website));
-            parameter.Add(new SqlParameter("@PersonalLinks", vCardQRCode.PersonalLinks));
-            parameter.Add(new SqlParameter("@Type", "UpdateQRCode_VCard"));
+            var _vcardqrcode = _dbContext._vCardQRCodes.FirstOrDefault(t => t.VCardId == vCardQRCode.VCardId);
+            _vcardqrcode.QRCodeId = vCardQRCode.QRCodeId;
+            _vcardqrcode.Title = vCardQRCode.Title;
+            _vcardqrcode.EmployeeCode = vCardQRCode.EmployeeCode;
+            _vcardqrcode.FirstName = vCardQRCode.FirstName;
+            _vcardqrcode.LastName = vCardQRCode.LastName;
+            _vcardqrcode.UploadImage = vCardQRCode.UploadImage;
+            _vcardqrcode.Designation = vCardQRCode.Designation;
+            _vcardqrcode.MobileNo = vCardQRCode.MobileNo;
+            _vcardqrcode.EmailId = vCardQRCode.EmailId;
+            _vcardqrcode.CompanyName = vCardQRCode.CompanyName;
+            _vcardqrcode.Website = vCardQRCode.Website;
+            _vcardqrcode.PersonalLinks = vCardQRCode.PersonalLinks;
 
-            var result = await Task.Run(() => _dbContext.Database
-           .ExecuteSqlRawAsync(@"exec [SP_QRCode_VCardAddUpdate] @VCardId,@QRCodeId,@Title,@EmployeeCode,@FirstName,@LastName,@UploadImage,@Designation,@MobileNo,@EmailId,@CompanyName,@Website,@PersonalLinks,@Type", parameter.ToArray()));
-            return result;
+            var result = _dbContext._vCardQRCodes.Update(_vcardqrcode);
+            await _dbContext.SaveChangesAsync();
+            return result.Entity.VCardId;
         }
 
         public async Task<int> DeleteVCard(int Id)
         {
-            var parameter = new List<SqlParameter>();
-            parameter.Add(new SqlParameter("@VCardId", Id));
-            parameter.Add(new SqlParameter("@Type", "DeleteQRCode_VCard"));
-
-            var result = await Task.Run(() => _dbContext.Database
-                        .ExecuteSqlRawAsync(@"exec [SP_QRCode_VCard] @VCardId,@Type", parameter.ToArray()));
-            return result;
+            var result = await _dbContext._vCardQRCodes.FindAsync(Id);
+            _dbContext._vCardQRCodes.Remove(result);
+            await _dbContext.SaveChangesAsync();
+            return result.VCardId;
         }
     }
 }

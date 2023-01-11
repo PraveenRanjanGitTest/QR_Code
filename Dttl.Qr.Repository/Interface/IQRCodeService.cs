@@ -6,7 +6,7 @@ namespace Dttl.Qr.Repository.Interface
     {
         public Task<List<QrCode>> GetQRCodeList();
 
-        public Task<List<QrCode>> GetQRCodeListById(int Id);
+        public Task<QrCode> GetQRCodeListById(int Id);
 
         public Task<int> AddQRCodes(QrCode qRCode);
 

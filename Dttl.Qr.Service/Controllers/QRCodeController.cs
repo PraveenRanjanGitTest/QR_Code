@@ -30,7 +30,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetQRCodeListById(int Id)
         {
             var result = await _qRCodeService.GetQRCodeListById(Id);
-            if (result.Count == 0)
+            if (result == null)
             {
                 return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
@@ -41,7 +41,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> AddQRCodes([FromBody] QrCode qrCode)
         {
             var result = await _qRCodeService.AddQRCodes(qrCode);
-            return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
+            return StatusCode(StatusCodes.Status201Created, result.ToString());
         }
 
         [HttpPut("UpdateQRCode")]
@@ -51,18 +51,11 @@ namespace Dttl.Qr.Service
             return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
-        [HttpDelete("DeleteQRCodes")]
-        public async Task<IActionResult> DeleteQRCodes(int Id)
-        {
-            var result = await _qRCodeService.DeleteQRCodes(Id);
-            if (result == 1)
-            {
-                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
-            }
-        }
+        //[HttpDelete("DeleteQRCodes")]
+        //public async Task<IActionResult> DeleteQRCodes(int Id)
+        //{
+        //    var result = await _qRCodeService.DeleteQRCodes(Id);
+        //    return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
+        //}
     }
 }
