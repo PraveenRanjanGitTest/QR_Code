@@ -479,3 +479,9 @@ $RECYCLE.BIN/
 /.vs/QRCodeGeneration/FileContentIndex/b5aa01a3-adeb-4a3b-84b0-c09114749bcb.vsidx
 /Dttl.Qr.Presentation/src/Components/TemplateComponent.tsx
 /.gitignore
+/Dttl.Qr.Presentation/src/Utils/CanvasUtils.tsx
+/dttl.qr.presentation/src/App.tsx
+/Dttl.Qr.TestProject/bin/Debug/net6.0/Dttl.Qr.Model.pdb
+/Dttl.Qr.TestProject/bin/Debug/net6.0/Dttl.Qr.TestProject.dll
+/Dttl.Qr.TestProject/Program.cs
+/Dttl.Qr.Util/VCardUtil.cs
