@@ -2,6 +2,7 @@ import * as React from "react";
 import jsPDF from 'jspdf';
 
 let nameofthefile = "qrcode.";
+
 function downloadQrCodeImage(canvasElement: any, imageType: string, width: number, height: number) {
     const canvas = canvasElement as unknown as HTMLCanvasElement;
     const anchor = document.createElement("a");
@@ -28,8 +29,6 @@ function downloadQrCodePdf(canvasElement: any, type: string, width: number, heig
     const marginY = (pageHeight - canvasHeight) / 2;
 
     doc.addImage(image, 'JPEG', marginX, marginY, canvasWidth, canvasHeight);
-
-  
 
     doc.save(nameofthefile + type);
 }
