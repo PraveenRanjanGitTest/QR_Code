@@ -19,7 +19,7 @@ namespace Dttl.Qr.Util
 
             if (vCardModel.UploadImage == null) return string.Empty;
 
-            return Convert.ToBase64String(vCardModel.UploadImage);
+            return vCardModel.UploadImage;
         }
 
         /// <summary>Gets the v card.</summary>

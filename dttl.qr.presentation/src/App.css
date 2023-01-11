@@ -37,3 +37,45 @@
         transform: rotate(360deg);
     }
 }
+
+/*form-inputs {
+    margin-bottom: 0.5rem;
+    width: 80%;
+}
+
+.form-content-right {
+
+    position: relative;
+    margin-right: 100px;
+}
+
+.form-input {
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 90%;
+    border: #080606;
+    background-color: #f9f9f9;
+}
+
+.form-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 1px;
+    color: #080606;
+}
+
+.form {
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+*/

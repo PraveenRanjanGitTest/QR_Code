@@ -42,6 +42,8 @@ export const TemplateComponent: React.FC = () => {
     };
 
     const CreateNewTemplate = () => {
+        console.log(template)
+        console.log(template.Logo)
         addQrTemplate(template
         ).then(function (response) {
             console.log(response);

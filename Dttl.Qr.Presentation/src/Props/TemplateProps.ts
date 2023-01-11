@@ -4,7 +4,7 @@ export interface DefaultTemplateProps {
     Height: number;
     Width: number;
     Logo: any;
-
+  
     CreatedBy: string;
     TemplateName: string;
 }

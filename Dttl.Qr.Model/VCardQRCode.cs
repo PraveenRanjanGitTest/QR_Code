@@ -14,7 +14,7 @@ namespace Dttl.Qr.Model
         public string? EmployeeCode { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public byte[]? UploadImage { get; set; }
+        public string UploadImage { get; set; }
         public string? Designation { get; set; }
         public string? MobileNo { get; set; }
         public string? EmailId { get; set; }

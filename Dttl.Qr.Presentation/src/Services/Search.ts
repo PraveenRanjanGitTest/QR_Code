@@ -1,5 +1,5 @@
 import axios from "axios";
-import { env } from "../env";
+
 export const getSearchByFilter = () => {
-    return axios.get(env.apiUrl + "/api/Search/GetSearchByFilter")
+    return axios.get("https://localhost:7268/api/Search/GetSearchByFilter")
 }

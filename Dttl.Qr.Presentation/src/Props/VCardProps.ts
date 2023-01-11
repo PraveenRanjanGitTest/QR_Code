@@ -1,9 +1,10 @@
 export interface DefaultVCardProps {
+    QRCodeId: number;
     Title: string;
     EmployeeCode: string;
     FirstName: string;
     LastName: string;
-    UploadImage: string;
+    UploadImage: any;
     Designation: string;
     MobileNumber: string;
     EmailId: string;

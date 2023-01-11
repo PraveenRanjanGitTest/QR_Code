@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Dttl.Qr.Model
 {
     [Table("URLQRCode")]
-    public class UrlqrCode
+    public class URLQRCode
     {
         [Key]
         public int URLId { get; set; }

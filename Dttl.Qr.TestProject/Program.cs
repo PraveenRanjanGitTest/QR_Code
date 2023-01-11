@@ -14,7 +14,7 @@ VCardQRCode c = new()
     EmailId = "Test@kanini.com",
     Website = "kanini.com",
     PersonalLinks = "www.google.com",
-    UploadImage = await System.IO.File.ReadAllBytesAsync(fileName)
+    UploadImage = fileName
 };
 
 // Test

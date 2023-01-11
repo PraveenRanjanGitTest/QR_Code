@@ -1,22 +1,21 @@
 import axios from "axios";
-import { env } from "../env";
 
 export const getQrTemplateList = () => {
-    return axios.get(env.apiUrl + "/api/QRTemplate/GetQRTemplateList")
+    return axios.get("https://localhost:7268/api/QRTemplate/GetQRTemplateList")
 }
 
 export const getQrTemplateListById = () => {
-    axios.get(env.apiUrl + "/api/QRTemplate/GetQRTemplateListById")
+    axios.get("https://localhost:7268/api/QRTemplate/GetQRTemplateListById")
 }
 
 export const addQrTemplate = (data: any) => {
-    return axios.post(env.apiUrl + "/api/QRTemplate/AddQRTemplate", data)
+    return axios.post("https://localhost:7268/api/QRTemplate/AddQRTemplate", data)
 }
 
 export const updateQrTemplate = (data: any) => {
-    axios.put(env.apiUrl + "/api/QRTemplate/UpdateQRTemplate", data)
+    axios.put("https://localhost:7268/api/QRTemplate/UpdateQRTemplate", data)
 }
 
 export const deleteQrTemplate = () => {
-    axios.delete(env.apiUrl + "/api/QRTemplate/DeleteQRTemplate")
+    axios.delete("https://localhost:7268/api/QRTemplate/DeleteQRTemplate")
 }

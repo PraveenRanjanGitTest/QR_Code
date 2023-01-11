@@ -30,7 +30,7 @@ export function downloadQrCode(SvgElementId: string, imageType: string) {
         downLoad(image64, canvasElement, imageType, width, height);
     }
 }
-function downLoad(imagesrc: string, canvasElement: HTMLElement, type: string, width: number, height: number) {
+function downLoad(imagesrc: string, canvasElement: any, type: string, width: number, height: number) {
     switch (type.toLowerCase()) {
         case 'svg':
             downloadQrCodeSvg(imagesrc, type);
@@ -47,14 +47,14 @@ function getSvgElement(SvgElementId: string) {
     return document.getElementById(SvgElementId) as unknown as SVGAElement;
 }
 
-function downloadQrCodeImage(canvasElement: HTMLElement, imageType: string) {
+function downloadQrCodeImage(canvasElement: any, imageType: string) {
     const canvas = canvasElement as unknown as HTMLCanvasElement;
     const anchor = document.createElement("a");
     anchor.href = canvas.toDataURL("image/" + imageType);
     anchor.download = nameofthefile + imageType;
     anchor.click();
 }
-function downloadQrCodePdf(canvasElement: HTMLElement, type: string) {
+function downloadQrCodePdf(canvasElement: any, type: string) {
     const canvas = canvasElement as unknown as HTMLCanvasElement;
 
     const image = canvas.toDataURL('image/jpeg', 1.0);

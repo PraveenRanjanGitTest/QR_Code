@@ -1,21 +1,21 @@
 import axios from "axios";
-import { env } from "../env";
+
 export const getQrDetailList = () => {
-    return axios.get(env.apiUrl + "/api/QRDetail/GetQRDetailList")
+    return axios.get("https://localhost:7268/api/QRDetail/GetQRDetailList")
 }
 
 export const getQrDetailListById = () => {
-    return axios.get(env.apiUrl + "/api/QRDetail/GetQRDetailListById")
+    return axios.get("https://localhost:7268/api/QRDetail/GetQRDetailListById")
 }
 
 export const addQrDetail = () => {
-    return axios.post(env.apiUrl + "/api/QRDetail/AddQRDetails")
+    return axios.post("https://localhost:7268/api/QRDetail/AddQRDetails")
 }
 
 export const updateQrDetail = () => {
-    return axios.put(env.apiUrl + "/api/QRDetail/UpdateQReDetails")
+    return axios.put("https://localhost:7268/api/QRDetail/UpdateQReDetails")
 }
 
 export const deleteQrDetail = () => {
-    return axios.delete(env.apiUrl + "/api/QRDetail/DeleteQRDetails")
+    return axios.delete("https://localhost:7268/api/QRDetail/DeleteQRDetails")
 }

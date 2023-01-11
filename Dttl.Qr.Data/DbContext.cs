@@ -13,15 +13,15 @@ namespace Dttl.Qr.Data
             Configuration = configuration;
         }
 
-        protected override void OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder options)
         {
-            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("CS"));
+            options.UseSqlServer(Configuration.GetConnectionString("CS"));
         }
 
         public DbSet<QRTemplate> _qRTemplates { get; set; }
         public DbSet<QrCode> _qrCode { get; set; }
         public DbSet<VCardQRCode> _vCardQRCodes { get; set; }
-        public DbSet<UrlqrCode> _uRLQRCodes { get; set; }
+        public DbSet<URLQRCode> _uRLQRCodes { get; set; }
         public DbSet<QRDetails> _qRDetails { get; set; }
         public DbSet<FilterData> _filterData { get; set; }
     }

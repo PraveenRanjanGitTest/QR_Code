@@ -6,7 +6,7 @@ namespace Dttl.Qr.Repository.Interface
     {
         public Task<List<QRTemplate>> GetQRTemplateList();
 
-        public Task<QRTemplate> GetQRTemplateListById(int Id);
+        public Task<List<QRTemplate>> GetQRTemplateListById(int Id);
 
         public Task<int> AddQRTemplate(QRTemplate qRTemplate);
 
