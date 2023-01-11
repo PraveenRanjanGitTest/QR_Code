@@ -13,7 +13,11 @@ namespace Dttl.Qr.Model
         public string? EmployeeCode { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+<<<<<<< HEAD
         public string? UploadImage { get; set; }
+=======
+        public string UploadImage { get; set; }
+>>>>>>> d62eaafbb20a2a0ef18004aa8aa9c4bc6e1083e8
         public string? Designation { get; set; }
         public string? MobileNo { get; set; }
         public string? EmailId { get; set; }

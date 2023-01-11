@@ -509,3 +509,5 @@ $RECYCLE.BIN/
 /dttl.qr.presentation/Dttl.Qr.presentation.esproj
 /dttl.qr.presentation/package-lock.json
 /dttl.qr.presentation/package.json
+*.png
+/.gitignore
