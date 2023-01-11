@@ -14,16 +14,26 @@ namespace Dttl.Qr.Repository.Implementation
         {
             _dbContext = dbContext;
         }
+<<<<<<< HEAD
         public async Task<List<UrlqrCode>> GetURLQRCodelList()
+=======
+
+        public async Task<List<URLQRCode>> GetURLQRCodelList()
+>>>>>>> d62eaafbb20a2a0ef18004aa8aa9c4bc6e1083e8
         {
             return await _dbContext._uRLQRCodes.ToListAsync();
         }
+<<<<<<< HEAD
         public async Task<UrlqrCode> GetURLQRCodeListById(int Id)
+=======
+
+        public async Task<List<URLQRCode>> GetURLQRCodeListById(int Id)
+>>>>>>> d62eaafbb20a2a0ef18004aa8aa9c4bc6e1083e8
         {
             return await _dbContext._uRLQRCodes.FirstOrDefaultAsync(m => m.URLId == Id);
         }
 
-        public async Task<int> AddURLQRCode(UrlqrCode uRLQRCode)
+        public async Task<int> AddURLQRCode(URLQRCode uRLQRCode)
         {
             var _urlqrCode = new UrlqrCode();
             _urlqrCode.QRCodeId = uRLQRCode.QRCodeId;
@@ -36,7 +46,7 @@ namespace Dttl.Qr.Repository.Implementation
             return result.Entity.URLId;
         }
 
-        public async Task<int> UpdateURLQRCode(UrlqrCode uRLQRCode)
+        public async Task<int> UpdateURLQRCode(URLQRCode uRLQRCode)
         {
             var _urlqrCode = new UrlqrCode();
             _urlqrCode.URLId = uRLQRCode.URLId;
