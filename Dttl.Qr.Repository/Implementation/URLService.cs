@@ -15,7 +15,7 @@ namespace Dttl.Qr.Repository.Implementation
             _dbContext = dbContext;
         }
 
-        public async Task<List<URLQRCode>> GetURLQRCodelList()
+        public async Task<List<UrlqrCode>> GetURLQRCodelList()
         {
             var parameter = new List<SqlParameter>();
             parameter.Add(new SqlParameter("@URLId", ""));
@@ -25,7 +25,7 @@ namespace Dttl.Qr.Repository.Implementation
                   .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<List<URLQRCode>> GetURLQRCodeListById(int Id)
+        public async Task<List<UrlqrCode>> GetURLQRCodeListById(int Id)
         {
             var parameter = new List<SqlParameter>();
             parameter.Add(new SqlParameter("@URLId", Id));
@@ -35,7 +35,7 @@ namespace Dttl.Qr.Repository.Implementation
                   .FromSqlRaw(@"exec [SP_QRCode_Url] @URLId, @Type", parameter.ToArray()).ToListAsync();
         }
 
-        public async Task<int> AddURLQRCode(URLQRCode uRLQRCode)
+        public async Task<int> AddURLQRCode(UrlqrCode uRLQRCode)
         {
             var parameter = new List<SqlParameter>();
             parameter.Add(new SqlParameter("@URLId", ""));
@@ -49,7 +49,7 @@ namespace Dttl.Qr.Repository.Implementation
             return result;
         }
 
-        public async Task<int> UpdateURLQRCode(URLQRCode uRLQRCode)
+        public async Task<int> UpdateURLQRCode(UrlqrCode uRLQRCode)
         {
             var parameter = new List<SqlParameter>();
             parameter.Add(new SqlParameter("@URLId", uRLQRCode.URLId));

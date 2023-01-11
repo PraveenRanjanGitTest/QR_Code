@@ -38,14 +38,14 @@ namespace Dttl.Qr.Service
         }
 
         [HttpPost("AddURLQRCode")]
-        public async Task<IActionResult> AddURLQRCode([FromBody] URLQRCode uRLQRCode)
+        public async Task<IActionResult> AddURLQRCode([FromBody] UrlqrCode uRLQRCode)
         {
             var result = await _uRLService.AddURLQRCode(uRLQRCode);
             return StatusCode(StatusCodes.Status201Created, "Data Save Successfully");
         }
 
         [HttpPut("UpdateURLQRCode")]
-        public async Task<IActionResult> UpdateURLQRCode([FromBody] URLQRCode uRLQRCode)
+        public async Task<IActionResult> UpdateURLQRCode([FromBody] UrlqrCode uRLQRCode)
         {
             var result = await _uRLService.UpdateURLQRCode(uRLQRCode);
             return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");

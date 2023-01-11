@@ -4,13 +4,13 @@ namespace Dttl.Qr.Repository.Interface
 {
     public interface IURLService
     {
-        public Task<List<URLQRCode>> GetURLQRCodelList();
+        public Task<List<UrlqrCode>> GetURLQRCodelList();
 
-        public Task<List<URLQRCode>> GetURLQRCodeListById(int Id);
+        public Task<List<UrlqrCode>> GetURLQRCodeListById(int Id);
 
-        public Task<int> AddURLQRCode(URLQRCode uRLQRCode);
+        public Task<int> AddURLQRCode(UrlqrCode uRLQRCode);
 
-        public Task<int> UpdateURLQRCode(URLQRCode uRLQRCode);
+        public Task<int> UpdateURLQRCode(UrlqrCode uRLQRCode);
 
         public Task<int> DeleteURLQRCode(int Id);
     }
