@@ -43,6 +43,7 @@ namespace Dttl.Qr.Repository.Implementation
         public async Task<int> UpdateQRCode(QrCode qRCode)
         {
             var _qrCode = _dbContext._qrCode.FirstOrDefault(t => t.QRCodeId == qRCode.QRCodeId);
+            _qrCode.QRType = qRCode.QRType;
             _qrCode.IsActive = qRCode.IsActive;
             _qrCode.ModifiedBy = qRCode.ModifiedBy;
             _qrCode.ModifiedDate = DateTime.UtcNow;

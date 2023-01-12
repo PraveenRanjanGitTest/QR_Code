@@ -38,7 +38,7 @@ namespace Dttl.Qr.Repository.Implementation
 
         public async Task<int> UpdateURLQRCode(UrlqrCode uRLQRCode)
         {
-            var _urlqrCode = new UrlqrCode();
+            var _urlqrCode = _dbContext._uRLQRCodes.FirstOrDefault(t => t.URLId == uRLQRCode.URLId);
             _urlqrCode.URLId = uRLQRCode.URLId;
             _urlqrCode.QRCodeId = uRLQRCode.QRCodeId;
             _urlqrCode.Title = uRLQRCode.Title;

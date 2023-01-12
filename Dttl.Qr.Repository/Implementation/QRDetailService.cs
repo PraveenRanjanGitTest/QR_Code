@@ -39,7 +39,7 @@ namespace Dttl.Qr.Repository.Implementation
 
         public async Task<int> UpdateQReDetails(QRDetails qRDetails)
         {
-            var _qrdetails = new QRDetails();
+            var _qrdetails = _dbContext._qRDetails.FirstOrDefault(t => t.QRDetailId == qRDetails.QRDetailId);
             _qrdetails.QRDetailId = qRDetails.QRDetailId;
             _qrdetails.QRCodeId = qRDetails.QRCodeId;
             _qrdetails.QRName = qRDetails.QRName;

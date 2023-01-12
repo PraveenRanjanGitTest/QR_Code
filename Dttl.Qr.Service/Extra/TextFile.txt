@@ -1,19 +1,73 @@
 ﻿USE [QRCodeGenerator]
 
-// DataBase Test
+CREATE TABLE [dbo].[Status](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Status] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
-CREATE TABLE [dbo].[QRCode](
+
+CREATE TABLE [dbo].[QRTemplate](
+	[TemplateId] [int] IDENTITY(100000,1) NOT NULL,
+	[TemplateName] [varchar](100) NULL,
+	[Height] [decimal](18, 2) NULL,
+	[Width] [decimal](18, 2) NULL,
+	[ForeColor] [varchar](50) NULL,
+	[BackgroundColor] [varchar](50) NULL,
+	[Logo] [nvarchar](max) NULL,
+	[TemplatePreview] [nvarchar](max) NULL,
+	[ActiveStatus] [int] NULL,
+	[ApprovedStatus] [int] NULL,
+	[CreatedBy] [varchar](100) NULL,
+	[CreatedDate] [datetime] NULL,
+	[ModifiedBy] [varchar](100) NULL,
+	[ModifiedDate] [datetime] NULL,
+ CONSTRAINT [PK__QRTempla__F87ADD2752A39F37] PRIMARY KEY CLUSTERED 
+(
+	[TemplateId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[QRDetails](
+	[QRDetailId] [int] IDENTITY(100000,1) NOT NULL,
 	[QRCodeId] [int] NOT NULL,
-	[TemplateId] [int] NULL,
-	[QRName] [varchar](50) NULL,
-	[Static] [bit] NULL,
-	[Dynamic] [bit] NULL,
+	[QRName] [varchar](100) NULL,
+	[QRImage] [nvarchar](max) NULL,
+	[CreatedDate] [datetime] NULL,
+ CONSTRAINT [PK__QRDetail__1C89A7821EB3CB05] PRIMARY KEY CLUSTERED 
+(
+	[QRDetailId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[QRDetails]  WITH CHECK ADD  CONSTRAINT [FK__QRDetails__QRCod__5CA1C101] FOREIGN KEY([QRCodeId])
+REFERENCES [dbo].[QRCodeMaster] ([QRCodeId])
+GO
+
+ALTER TABLE [dbo].[QRDetails] CHECK CONSTRAINT [FK__QRDetails__QRCod__5CA1C101]
+GO
+
+
+CREATE TABLE [dbo].[QRCodeMaster](
+	[QRCodeId] [int] IDENTITY(100000,1) NOT NULL,
+	[TemplateId] [int] NOT NULL,
+	[QRType] [varchar](50) NULL,
+	[IsDynamic] [bit] NULL,
 	[IsActive] [bit] NULL,
 	[CreatedBy] [varchar](50) NULL,
 	[CreatedDate] [datetime] NULL,
 	[ModifiedBy] [varchar](50) NULL,
 	[ModifiedDate] [datetime] NULL,
-	[ExpiryDate] [datetime] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[QRCodeId] ASC
@@ -25,22 +79,32 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[QRCode]  WITH CHECK ADD FOREIGN KEY([TemplateId])
+ALTER TABLE [dbo].[QRCodeMaster]  WITH CHECK ADD  CONSTRAINT [FK__QRCodeMas__Templ__56E8E7AB] FOREIGN KEY([TemplateId])
 REFERENCES [dbo].[QRTemplate] ([TemplateId])
 GO
--------------------------------------------------------------------------------
 
-CREATE TABLE [dbo].[QRDetails](
-	[QRDetailId] [int] NOT NULL,
-	[QRCodeId] [int] NULL,
-	[QRName] [varchar](100) NULL,
-	[QRImage] [varbinary](max) NULL,
-	[TargetUrl] [varchar](100) NULL,
-	[FormatType] [varchar](100) NULL,
+ALTER TABLE [dbo].[QRCodeMaster] CHECK CONSTRAINT [FK__QRCodeMas__Templ__56E8E7AB]
+GO
+
+
+CREATE TABLE [dbo].[QRCode_VCard](
+	[VCardId] [int] IDENTITY(100000,1) NOT NULL,
+	[QRCodeId] [int] NOT NULL,
+	[Title] [varchar](30) NULL,
+	[EmployeeCode] [varchar](20) NULL,
+	[FirstName] [varchar](100) NULL,
+	[LastName] [varchar](100) NULL,
+	[UploadImage] [nvarchar](max) NULL,
+	[Designation] [varchar](100) NULL,
+	[MobileNo] [varchar](15) NULL,
+	[EmailId] [varchar](100) NULL,
+	[CompanyName] [varchar](100) NULL,
+	[Website] [varchar](100) NULL,
+	[PersonalLinks] [varchar](100) NULL,
 	[CreatedDate] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__QRCode_V__ADBF974015499247] PRIMARY KEY CLUSTERED 
 (
-	[QRDetailId] ASC
+	[VCardId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
@@ -49,36 +113,18 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[QRDetails]  WITH CHECK ADD FOREIGN KEY([QRCodeId])
-REFERENCES [dbo].[QRCode] ([QRCodeId])
+ALTER TABLE [dbo].[QRCode_VCard]  WITH CHECK ADD  CONSTRAINT [FK__QRCode_VC__QRCod__625A9A57] FOREIGN KEY([QRCodeId])
+REFERENCES [dbo].[QRCodeMaster] ([QRCodeId])
 GO
--------------------------------------------------------------------------------
 
-CREATE TABLE [dbo].[QRTemplate](
-	[TemplateId] [int] NOT NULL,
-	[TemplateName] [varchar](100) NULL,
-	[Height] [decimal](18, 2) NULL,
-	[Width] [decimal](18, 2) NULL,
-	[ForeColor] [varchar](50) NULL,
-	[BackgroundColor] [varchar](50) NULL,
-	[Logo] [varbinary](max) NULL,
-	[IsActive] [bit] NULL,
-	[IsApproved] [bit] NULL,
-	[CreatedBy] [varchar](100) NULL,
-	[CreatedDate] [datetime] NULL,
-	[ModifiedBy] [varchar](100) NULL,
-	[ModifiedDate] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[TemplateId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+ALTER TABLE [dbo].[QRCode_VCard] CHECK CONSTRAINT [FK__QRCode_VC__QRCod__625A9A57]
+GO
 
--------------------------------------------------------------------------------
 
-CREATE TABLE [dbo].[URLQRCode](
-	[URLId] [int] NOT NULL,
-	[QRCodeId] [int] NULL,
+CREATE TABLE [dbo].[QRCode_Url](
+	[URLId] [int] IDENTITY(100000,1) NOT NULL,
+	[QRCodeId] [int] NOT NULL,
+	[Title] [varchar](100) NULL,
 	[Url] [varchar](200) NULL,
 	[CreatedDate] [datetime] NULL,
 PRIMARY KEY CLUSTERED 
@@ -92,54 +138,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[URLQRCode]  WITH CHECK ADD FOREIGN KEY([QRCodeId])
-REFERENCES [dbo].[QRCode] ([QRCodeId])
-GO
------------------------------------------------------------------------------------
-
-CREATE TABLE [dbo].[VCardQRCode](
-	[VCardId] [int] NOT NULL,
-	[QRCodeId] [int] NULL,
-	[Title] [varchar](30) NULL,
-	[EmployeeCode] [varchar](20) NULL,
-	[FirstName] [varchar](100) NULL,
-	[LastName] [varchar](100) NULL,
-	[UploadImage] [varbinary](max) NULL,
-	[Designation] [varchar](100) NULL,
-	[MobileNo] [varchar](15) NULL,
-	[EmailId] [varchar](100) NULL,
-	[CompanyName] [varchar](100) NULL,
-	[Website] [varchar](100) NULL,
-	[PersonalLinks] [varchar](100) NULL,
-	[CreatedDate] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[VCardId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
+ALTER TABLE [dbo].[QRCode_Url]  WITH CHECK ADD FOREIGN KEY([QRCodeId])
+REFERENCES [dbo].[QRCodeMaster] ([QRCodeId])
 GO
 
-SET ANSI_PADDING OFF
-GO
-
-ALTER TABLE [dbo].[VCardQRCode]  WITH CHECK ADD FOREIGN KEY([QRCodeId])
-REFERENCES [dbo].[QRCode] ([QRCodeId])
-GO
-------------------------------------------------------------------------------------------
-
-CREATE PROC [dbo].[QR_Code]
-(
-@FromDate VARCHAR(50)='-1',
-@ToDate VARCHAR(50)='-1',
-@TemplateName VARCHAR(50)='-1', 
-@Type VARCHAR(50)='-1'
-)
-AS
-BEGIN
-	IF @Type='SearchData'
-	BEGIN
-		SELECT TemplateName,ForeColor,BackgroundColor,Height,Width FROM QRTemplate WITH(NOLOCK)
-		WHERE (CreatedDate BETWEEN @FromDate AND @ToDate) AND ('-1'=@TemplateName OR TemplateName LIKE '%'+@TemplateName+'%')
-	END
-END

@@ -30,7 +30,7 @@ namespace Dttl.Qr.Service
         public async Task<IActionResult> GetQRTemplateListById(int Id)
         {
             var result = await _qRTemplateService.GetQRTemplateListById(Id);
-            if (result.Count == 0)
+            if (result == null)
             {
                 return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
             }
@@ -51,18 +51,11 @@ namespace Dttl.Qr.Service
             return StatusCode(StatusCodes.Status200OK, "Data Updated Successfully");
         }
 
-        [HttpDelete("DeleteQRTemplate")]
-        public async Task<IActionResult> DeleteQRTemplate(int Id)
-        {
-            var result = await _qRTemplateService.DeleteQRTemplate(Id);
-            if (result == 1)
-            {
-                return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status404NotFound, "No Results Found");
-            }
-        }
+        //[HttpDelete("DeleteQRTemplate")]
+        //public async Task<IActionResult> DeleteQRTemplate(int Id)
+        //{
+        //    var result = await _qRTemplateService.DeleteQRTemplate(Id);
+        //    return StatusCode(StatusCodes.Status200OK, "Data Deleted Successfully");
+        //}
     }
 }
