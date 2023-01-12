@@ -511,3 +511,4 @@ $RECYCLE.BIN/
 /dttl.qr.presentation/package.json
 *.png
 /.gitignore
+/Dttl.Qr.Presentation/src/Services
