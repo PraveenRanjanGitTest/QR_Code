@@ -11,7 +11,7 @@ import { func } from 'prop-types';
 
 export function VCardComponent() {
     const DefaultVCardProps: DefaultVCardProps[] = [];
-    
+
     const phoneRegExp = /^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/;
     const ValidationSchema = yup.object().shape({
         QRCodeId: yup.string()
@@ -50,14 +50,14 @@ export function VCardComponent() {
             .required("PersonalLinks is Required")
     })
 
-  
+
     const [filebase64, setFileBase64] = useState<string>("")
     const onSubmit: SubmitHandler<DefaultVCardProps> = event => {
 
         event.UploadImage = filebase64
         addVcard(event).then(function (response) { console.log(response) }).catch(function (error) { console.log(error); })
     };
-   
+
     const { register, handleSubmit, formState: { errors } } = useForm<DefaultVCardProps>(
         { resolver: yupResolver(ValidationSchema) }
 
@@ -237,6 +237,4 @@ export function VCardComponent() {
         </div>
 
     )
-
-
 }

@@ -1,21 +1,21 @@
 import axios from "axios";
-
+import { env } from "../env";
 export const getUrlQrCodeList = () => {
-    return axios.get("https://localhost:7268/api/URL/GetURLQRCodeList")
+    return axios.get(env.apiUrl + "/api/URL/GetURLQRCodeList")
 }
 
 export const getUrlQrCodeListById = () => {
-    return axios.get("https://localhost:7268/api/URL/GetURLQRCodeListById")
+    return axios.get(env.apiUrl + "/api/URL/GetURLQRCodeListById")
 }
 
 export const addUrlQrCode = () => {
-    return axios.post("https://localhost:7268/api/URL/AddURLQRCode")
+    return axios.post(env.apiUrl + "/api/URL/AddURLQRCode")
 }
 
 export const updateUrlQrCode = () => {
-    return axios.put("https://localhost:7268/api/URL/UpdateURLQRCode")
+    return axios.put(env.apiUrl + "/api/URL/UpdateURLQRCode")
 }
 
 export const deleteUrlQrCode = () => {
-    return axios.delete("https://localhost:7268/api/URL/DeleteURLQRCode")
+    return axios.delete(env.apiUrl + "/api/URL/DeleteURLQRCode")
 }

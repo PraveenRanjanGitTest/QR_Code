@@ -1,21 +1,21 @@
 import axios from "axios";
-
+import { env } from "../env";
 export const getVcardList = () => {
-    return axios.get("https://localhost:7268/api/VCard/GetVCardList")
+    return axios.get(env.apiUrl + "/api/VCard/GetVCardList")
 }
 
 export const getVcardListById = () => {
-    return axios.get("https://localhost:7268/api/VCard/GetVCardById")
+    return axios.get(env.apiUrl + "/api/VCard/GetVCardById")
 }
 
 export const addVcard = (data: any) => {
-    return axios.post("https://localhost:7268/api/VCard/AddVCard", data)
+    return axios.post(env.apiUrl + "/api/VCard/AddVCard", data)
 }
 
 export const updateVcard = () => {
-    return axios.put("https://localhost:7268/api/VCard/UpdateVCard")
+    return axios.put(env.apiUrl + "/api/VCard/UpdateVCard")
 }
 
 export const deleteVcard = () => {
-    return axios.delete("https://localhost:7268/api/VCard/DeleteVCard")
+    return axios.delete(env.apiUrl + "/api/VCard/DeleteVCard")
 }
