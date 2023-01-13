@@ -8,8 +8,8 @@ export const getUrlQrCodeListById = () => {
     return axios.get(env.apiUrl + "/api/URL/GetURLQRCodeListById")
 }
 
-export const addUrlQrCode = () => {
-    return axios.post(env.apiUrl + "/api/URL/AddURLQRCode")
+export const addUrlQrCode = (data: any) => {
+    return axios.post(env.apiUrl + "/api/URL/AddURLQRCode", data)
 }
 
 export const updateUrlQrCode = () => {

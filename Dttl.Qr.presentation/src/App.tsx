@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import SortableTable from './Components/SortedTable';
 import TemplateComponent from './Components/TemplateComponent';
+import  URLComponent  from './Components/URLComponent';
 import { VCardComponent } from './Components/VCardComponent';
 import { downloadQrCode } from './Utils/DownLoad';
 
@@ -32,6 +33,11 @@ function App() {
             <br />
             <div>
                 <VCardComponent />
+            </div>
+            <br />
+            <br />
+            <div>
+                <URLComponent />
             </div>
             <br />
         </div>
