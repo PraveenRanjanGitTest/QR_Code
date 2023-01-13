@@ -1,9 +1,11 @@
 import React from 'react';
 
 import './App.css';
+import SortableTable from './Components/SortedTable';
 import TemplateComponent from './Components/TemplateComponent';
 import { VCardComponent } from './Components/VCardComponent';
 import { downloadQrCode } from './Utils/DownLoad';
+
 
 function App() {
     return (
@@ -24,7 +26,8 @@ function App() {
             </div>
             <br />
             <div>
-                <TemplateComponent />
+                <SortableTable data={[]} />
+                <TemplateComponent/>
             </div>
             <br />
             <div>

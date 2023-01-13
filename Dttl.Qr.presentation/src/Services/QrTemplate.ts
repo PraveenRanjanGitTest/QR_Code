@@ -1,8 +1,8 @@
 import axios from "axios";
 import { env } from "../env";
 
-export const getQrTemplateList = () => {
-    return axios.get(env.apiUrl + "/api/QRTemplate/GetQRTemplateList")
+export const getQrTemplateList = (data: any) => {
+    return axios.get(env.apiUrl + "/api/QRTemplate/GetQRTemplateList", data)
 }
 
 export const getQrTemplateListById = () => {

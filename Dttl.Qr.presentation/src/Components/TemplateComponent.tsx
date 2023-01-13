@@ -1,8 +1,14 @@
-import React from 'react';
-import { useState } from "react";
+﻿import React from 'react';
+import {  useState } from "react";
+
 
 import { addQrTemplate, getQrTemplateList } from "../Services/QrTemplate"
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
+
+
+
+
+  
 
 export const TemplateComponent: React.FC = () => {
     const [template, setTemplate] = useState<DefaultTemplateProps>({
@@ -14,6 +20,9 @@ export const TemplateComponent: React.FC = () => {
         TemplateName: 'My New Template',
         CreatedBy: 'Kanini User',
     })
+    const [addTemplate ,setAddTemplate] = useState(false);
+
+
 
     const handleTemplateLogoUpload = (event: any) => {
         if (event.target.files) {
@@ -54,22 +63,32 @@ export const TemplateComponent: React.FC = () => {
     }
     const { TemplateName, CreatedBy, ForeColor, BackgroundColor, Height, Width, Logo } = template;
     return (
-        <div>
+         <>
 
-            <input type="text" name="TemplateName" onChange={handleTemplateChanges} value={TemplateName}></input>
-            <input type="text" name="CreatedBy" onChange={handleTemplateChanges} value={CreatedBy}></input>
-            <input type="color" name="ForeColor" onChange={handleTemplateChanges} value={ForeColor}></input>
-            <input type="color" name="BackgroundColor" onChange={handleTemplateChanges} value={BackgroundColor}></input>
-            <input type="text" name="Height" onChange={handleTemplateChanges} value={Height}></input>
-            <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
-            <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload} value=""></input>
+            <button onClick={() => { setAddTemplate(true) }} disabled={addTemplate}> Add Templates</button>
 
-            <img src={template.Logo} />
 
-            <button onClick={CreateNewTemplate}>Click me</button>
 
-        </div>
-    )
+            {
+                addTemplate &&
+                <div>
+
+                    <input type="text" name="TemplateName" onChange={handleTemplateChanges} value={TemplateName}></input>
+                    <input type="text" name="CreatedBy" onChange={handleTemplateChanges} value={CreatedBy}></input>
+                    <input type="color" name="ForeColor" onChange={handleTemplateChanges} value={ForeColor}></input>
+                    <input type="color" name="BackgroundColor" onChange={handleTemplateChanges} value={BackgroundColor}></input>
+                    <input type="text" name="Height" onChange={handleTemplateChanges} value={Height}></input>
+                    <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
+                    <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload} value=""></input>
+
+                    <img src={template.Logo} />
+
+                    <button onClick={CreateNewTemplate}>Click me</button>
+
+                </div>}
+            
+        </>
+        )
 }
-
 export default TemplateComponent;
+
