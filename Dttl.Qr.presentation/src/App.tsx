@@ -3,17 +3,23 @@ import React from 'react';
 import './App.css';
 import SortableTable from './Components/SortedTable';
 import TemplateComponent from './Components/TemplateComponent';
-import  URLComponent  from './Components/URLComponent';
+import URLComponent from './Components/URLComponent';
 import { VCardComponent } from './Components/VCardComponent';
 import { downloadQrCode } from './Utils/DownLoad';
-import QrCodeUtil from './Utils/QrCodeUtil';
-
+import QrCodeDisplayable from './Components/QrCodeDisplayable';
 
 function App() {
     return (
         <><div className="App">
             <div>
-                <QrCodeUtil />
+               
+                <QrCodeDisplayable
+                    TargetUrl={'www.google.com'}
+                    RenderType={'svg'} level={'L'} marginRequired={false}
+                    DivId={'qrcode'} ForeColor={'#ffff00'} BackgroundColor={'ffffff'} Height={256} Width={256}
+                    Logo={''} CreatedBy={''} TemplateName={''} />
+
+
                 <button onClick=
                     {
                         () => {
@@ -23,14 +29,14 @@ function App() {
                             downloadQrCode("qrcode", "pdf");
                         }
                     }>Download</button>
-               
+
             </div>
             <br />
-           
+
             <br />
             <div>
                 <SortableTable data={[]} />
-                <TemplateComponent/>
+                <TemplateComponent />
             </div>
             <br />
             <div>

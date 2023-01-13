@@ -24,51 +24,50 @@ export function QRCodeComponent() {
         addQrCode(qrcode)
             .then(function (response) {
                 console.log(response.status);
-        })
+            })
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
-        const { TemplateId, QRType,IsDynamic, CreadtedBy } = qrcode;
-        return (
-            <div>
-                <div className="form-inputs">
-                    <div>
-                <label
-                    className="form-label">
-                    Template Id:
-                </label>
+    const { TemplateId, QRType, IsDynamic, CreadtedBy } = qrcode;
+    return (
+        <div>
+            <div className="form-inputs">
+                <div>
+                    <label
+                        className="form-label">
+                        Template Id:
+                    </label>
                     <input type="text" name="TemplateId" onChange={handleQRCodeChanges} value={TemplateId}></input>
-                    </div>
-                    <div>
+                </div>
+                <div>
                     <label
                         className="form-label">
                         QRType:
                     </label>
-                        <input type="text" name="QRType" onChange={handleQRCodeChanges} value={QRType}></input>
-                    </div>
-                        <div>
+                    <input type="text" name="QRType" onChange={handleQRCodeChanges} value={QRType}></input>
+                </div>
+                <div>
                     <label
                         className="form-label">
                         Dynamic:
                     </label>
-                        <input type="checkbox" name="IsDynamic" onChange={handleQRCodeChanges} defaultChecked={IsDynamic}></input>
-                    </div>
-                            <div>
+                    <input type="checkbox" name="IsDynamic" onChange={handleQRCodeChanges} defaultChecked={IsDynamic}></input>
+                </div>
+                <div>
                     <label
                         className="form-label">
                         Creadted By:
                     </label>
-                        <input type="text" name="CreadtedBy" onChange={handleQRCodeChanges} value={CreadtedBy}></input>
-                    </div>
-
-                                <div>
-                        <button onClick={CreateNewQRCode}>AddQRCODE</button>
-                    </div>
+                    <input type="text" name="CreadtedBy" onChange={handleQRCodeChanges} value={CreadtedBy}></input>
                 </div>
 
+                <div>
+                    <button onClick={CreateNewQRCode}>AddQRCODE</button>
+                </div>
             </div>
-        );
-    };
+
+        </div>
+    );
+};

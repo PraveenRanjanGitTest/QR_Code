@@ -59,8 +59,7 @@ function SortButton({
 const SortableTable = ({ data }: { data: Data }) => {
     const [sortKey, setSortKey] = useState<SortKeys>("templateId");
     const [sortOrder, setSortOrder] = useState<SortOrder>("ascn");
-        const [showTable, setShowTable] = useState(false);
-        
+    const [showTable, setShowTable] = useState(false);
 
     const headers: { key: SortKeys; label: string }[] = [
         { key: "templateId", label: "Template Id" },
@@ -87,81 +86,72 @@ const SortableTable = ({ data }: { data: Data }) => {
         setSortOrder(sortOrder === "ascn" ? "desc" : "ascn");
 
         setSortKey(key);
-        }
+    }
 
-        const getTemplateTable = () => {
-            
-          
-                getQrTemplateList(data)
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-           
-        }
+    const getTemplateTable = () => {
+        getQrTemplateList(data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
 
-   
-        return (
-            <>
-                <button onClick={getTemplateTable}>list api status</button>
+    return (
+        <>
+            <button onClick={getTemplateTable}>list api status</button>
 
-                <button onClick={() => { setShowTable(true) }} disabled={showTable}> List View </button>
-                
-         
-         
-           {
-            showTable && <><table>
-                <thead>
-                    <tr>
-                        {headers.map((row) => {
+            <button onClick={() => { setShowTable(true) }} disabled={showTable}> List View </button>
+
+            {
+                showTable && <><table>
+                    <thead>
+                        <tr>
+                            {headers.map((row) => {
+                                return (
+                                    <td key={row.key}>
+                                        {row.label}{" "}
+                                        <SortButton
+                                            columnKey={row.key}
+                                            onClick={() => changeSort(row.key)}
+                                            {...{
+                                                sortOrder,
+                                                sortKey,
+                                            }}
+                                        />
+                                    </td>
+                                );
+                            })}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {sortedData().map((templateList) => {
                             return (
-                                <td key={row.key}>
-                                    {row.label}{" "}
-                                    <SortButton
-                                        columnKey={row.key}
-                                        onClick={() => changeSort(row.key)}
-                                        {...{
-                                            sortOrder,
-                                            sortKey,
-                                        }}
-                                    />
-                                </td>
+                                <tr key={templateList.templateId}>
+                                    <td>{templateList.templateId}</td>
+                                    <td>{templateList.templateName}</td>
+                                    <td>{templateList.height}</td>
+                                    <td>{templateList.width}</td>
+                                    <td>{templateList.foreColor}</td>
+                                    <td>{templateList.backgroundColor}</td>
+                                    <td><img src={templateList.logo}></img></td>
+                                    <td>{templateList.isActive}</td>
+                                    <td>{templateList.isApproved}</td>
+                                    <td>{templateList.createdBy}</td>
+                                    <td>{templateList.createdDate}</td>
+                                    <td>{templateList.modifiedBy}</td>
+                                    <td>{templateList.modifiedDate}</td>
+
+                                </tr>
                             );
                         })}
-                    </tr>
-                </thead>
+                    </tbody>
+                </table></>
+            }
 
-                <tbody>
-                    {sortedData().map((templateList) => {
-                        return (
-                            <tr key={templateList.templateId}>
-                                <td>{templateList.templateId}</td>
-                                <td>{templateList.templateName}</td>
-                                <td>{templateList.height}</td>
-                                <td>{templateList.width}</td>
-                                <td>{templateList.foreColor}</td>
-                                <td>{templateList.backgroundColor}</td>
-                                <td><img src={templateList.logo}></img></td>
-                                <td>{templateList.isActive}</td>
-                                <td>{templateList.isApproved}</td>
-                                <td>{templateList.createdBy}</td>
-                                <td>{templateList.createdDate}</td>
-                                <td>{templateList.modifiedBy}</td>
-                                <td>{templateList.modifiedDate}</td>
-                              
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table></> 
-        }
-        
-            
-        
-            </>      );
-               
+        </>);
 }
 
 export default SortableTable;

@@ -7,8 +7,6 @@ import * as yup from 'yup'
 import { addVcard } from '../Services/Vcard';
 import { func } from 'prop-types';
 
-
-
 export function VCardComponent() {
     const DefaultVCardProps: DefaultVCardProps[] = [];
 
@@ -50,10 +48,8 @@ export function VCardComponent() {
             .required("PersonalLinks is Required")
     })
 
-
     const [filebase64, setFileBase64] = useState<string>("")
     const onSubmit: SubmitHandler<DefaultVCardProps> = event => {
-
         event.UploadImage = filebase64
         addVcard(event).then(function (response) { console.log(response) }).catch(function (error) { console.log(error); })
     };

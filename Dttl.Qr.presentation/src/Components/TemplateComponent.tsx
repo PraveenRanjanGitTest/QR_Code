@@ -1,14 +1,8 @@
 ﻿import React from 'react';
-import {  useState } from "react";
-
+import { useState } from "react";
 
 import { addQrTemplate, getQrTemplateList } from "../Services/QrTemplate"
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
-
-
-
-
-  
 
 export const TemplateComponent: React.FC = () => {
     const [template, setTemplate] = useState<DefaultTemplateProps>({
@@ -20,9 +14,7 @@ export const TemplateComponent: React.FC = () => {
         TemplateName: 'My New Template',
         CreatedBy: 'Kanini User',
     })
-    const [addTemplate ,setAddTemplate] = useState(false);
-
-
+    const [addTemplate, setAddTemplate] = useState(false);
 
     const handleTemplateLogoUpload = (event: any) => {
         if (event.target.files) {
@@ -63,11 +55,9 @@ export const TemplateComponent: React.FC = () => {
     }
     const { TemplateName, CreatedBy, ForeColor, BackgroundColor, Height, Width, Logo } = template;
     return (
-         <>
+        <>
 
             <button onClick={() => { setAddTemplate(true) }} disabled={addTemplate}> Add Templates</button>
-
-
 
             {
                 addTemplate &&
@@ -86,9 +76,8 @@ export const TemplateComponent: React.FC = () => {
                     <button onClick={CreateNewTemplate}>Click me</button>
 
                 </div>}
-            
+
         </>
-        )
+    )
 }
 export default TemplateComponent;
-
