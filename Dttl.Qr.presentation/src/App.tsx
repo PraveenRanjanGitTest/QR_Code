@@ -6,25 +6,27 @@ import TemplateComponent from './Components/TemplateComponent';
 import  URLComponent  from './Components/URLComponent';
 import { VCardComponent } from './Components/VCardComponent';
 import { downloadQrCode } from './Utils/DownLoad';
+import QrCodeUtil from './Utils/QrCodeUtil';
 
 
 function App() {
     return (
         <><div className="App">
             <div>
-                <svg id="testDownload" width="100" height="100">
-                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-                </svg>
+                <QrCodeUtil />
                 <button onClick=
                     {
                         () => {
-                            downloadQrCode("testDownload", "svg");
-                            downloadQrCode("testDownload", "png");
-                            downloadQrCode("testDownload", "jpeg");
-                            downloadQrCode("testDownload", "pdf");
+                            downloadQrCode("qrcode", "svg");
+                            downloadQrCode("qrcode", "png");
+                            downloadQrCode("qrcode", "jpeg");
+                            downloadQrCode("qrcode", "pdf");
                         }
                     }>Download</button>
+               
             </div>
+            <br />
+           
             <br />
             <div>
                 <SortableTable data={[]} />
