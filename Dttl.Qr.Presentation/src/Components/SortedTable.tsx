@@ -143,7 +143,7 @@ const SortableTable = ({ data }: { data: Data }) => {
                                 <td>{templateList.width}</td>
                                 <td>{templateList.foreColor}</td>
                                 <td>{templateList.backgroundColor}</td>
-                                <td>{templateList.logo}</td>
+                                <td><img src={templateList.logo}></img></td>
                                 <td>{templateList.isActive}</td>
                                 <td>{templateList.isApproved}</td>
                                 <td>{templateList.createdBy}</td>
