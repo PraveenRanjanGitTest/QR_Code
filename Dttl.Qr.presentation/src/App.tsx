@@ -17,7 +17,7 @@ function App() {
                     TargetUrl={'www.google.com'}
                     RenderType={'svg'} level={'L'} marginRequired={false}
                     DivId={'qrcode'} ForeColor={'#ffff00'} BackgroundColor={'ffffff'} Height={256} Width={256}
-                    Logo={''} CreatedBy={''} TemplateName={''} />
+                    Logo={''} CreatedBy={''} TemplateName={''} TemplateId={''} CreatedDate={new Date()} ModifiedBy={''} ModifiedDate={new Date()} IsActive={false} IsApproved={false} />
 
 
                 <button onClick=

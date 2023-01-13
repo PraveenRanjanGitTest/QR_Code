@@ -1,6 +1,6 @@
-import { DefaultTemplateProps } from "./TemplateProps";
+import { DefaultTemplateProps, TemplateProps } from "./TemplateProps";
 
-export interface QRCodeDisplayableProps extends DefaultTemplateProps {
+export interface QRCodeDisplayableProps extends TemplateProps {
     TargetUrl: string;
     RenderType: string;
     level: string;
