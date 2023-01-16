@@ -1,7 +1,6 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
 using Dttl.Qr.Repository.Interface;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dttl.Qr.Repository.Implementation
@@ -14,6 +13,7 @@ namespace Dttl.Qr.Repository.Implementation
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<QRDetails>> GetQRDetailList()
         {
             return await _dbContext._qRDetails.ToListAsync();

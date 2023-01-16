@@ -15,7 +15,7 @@ export function QrCodeDisplayable(displayProps: QRCodeDisplayableProps) {
                 includeMargin={displayProps.marginRequired}
                 imageSettings={{
                     src: displayProps.Logo,
-                    height: displayProps.Height*10/100,
+                    height: displayProps.Height * 10 / 100,
                     width: displayProps.Width * 10 / 100,
                     excavate: true,
                 }}

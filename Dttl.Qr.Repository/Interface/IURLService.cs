@@ -5,6 +5,7 @@ namespace Dttl.Qr.Repository.Interface
     public interface IURLService
     {
         public Task<List<UrlqrCode>> GetURLQRCodelList();
+
         public Task<UrlqrCode> GetURLQRCodeListById(int Id);
 
         public Task<int> AddURLQRCode(UrlqrCode uRLQRCode);

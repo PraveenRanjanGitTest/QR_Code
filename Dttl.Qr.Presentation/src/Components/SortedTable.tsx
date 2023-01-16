@@ -1,5 +1,4 @@
-﻿
-import React from 'react';
+﻿import React from 'react';
 import { MouseEventHandler, useCallback, useState, useEffect } from "react";
 import data from "../data.json";
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
@@ -64,8 +63,6 @@ export const SortableTable = ({ data }: { data: Data }) => {
     const [search, setSearch] = useState("");
     const [template, setTemplate] = useState(data);
 
-
-
     const headers: { key: SortKeys; label: string }[] = [
         { key: "templateId", label: "Template Id" },
         { key: "templateName", label: "Template Name" },
@@ -94,8 +91,6 @@ export const SortableTable = ({ data }: { data: Data }) => {
     }
 
     const getTemplateTable = () => {
-
-
         getQrTemplateList(data)
             .then(function (response) {
                 console.log(response);
@@ -103,10 +98,8 @@ export const SortableTable = ({ data }: { data: Data }) => {
             .catch(function (error) {
                 console.log(error);
             })
-
     }
     {
-
         template.filter(item => {
             if (search == "") {
                 return item
@@ -115,7 +108,6 @@ export const SortableTable = ({ data }: { data: Data }) => {
                 return item;
             }
         })
-
     }
     const handleSearch = () => {
         return (
@@ -125,9 +117,6 @@ export const SortableTable = ({ data }: { data: Data }) => {
         )
     }
 
-
-
-
     console.log(sortedData())
     let searchedData = search ? handleSearch() : sortedData();
 
@@ -135,15 +124,12 @@ export const SortableTable = ({ data }: { data: Data }) => {
         <>
             <button onClick={() => { setShowTable(true) }} disabled={showTable}> List Template</button>
 
-            
-
-
             {showTable && <><input
                 type="text"
                 placeholder="Search here"
                 onChange={(e) => {
                     setSearch(e.target.value);
-                } } /><table>
+                }} /><table>
                     <thead>
                         <tr>
                             {headers.map((row) => {
@@ -185,13 +171,8 @@ export const SortableTable = ({ data }: { data: Data }) => {
                             );
                         })}
                     </tbody>
-                </table></> 
+                </table></>
             }
-            </>
-        );
-     
-
-    }
-
-
-    
+        </>
+    );
+}

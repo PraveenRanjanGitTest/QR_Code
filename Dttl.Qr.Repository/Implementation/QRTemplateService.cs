@@ -1,7 +1,6 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
 using Dttl.Qr.Repository.Interface;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dttl.Qr.Repository.Implementation
@@ -14,6 +13,7 @@ namespace Dttl.Qr.Repository.Implementation
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<QRTemplate>> GetQRTemplateList()
         {
             return await _dbContext._qRTemplates.ToListAsync();
@@ -43,6 +43,7 @@ namespace Dttl.Qr.Repository.Implementation
             await _dbContext.SaveChangesAsync();
             return result.Entity.TemplateId;
         }
+
         public async Task<int> UpdateQRTemplate(QRTemplate qRTemplate)
         {
             var _qrtemplate = _dbContext._qRTemplates.FirstOrDefault(t => t.TemplateId == qRTemplate.TemplateId);

@@ -1,7 +1,6 @@
 ﻿using Dttl.Qr.Data;
 using Dttl.Qr.Model;
 using Dttl.Qr.Repository.Interface;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dttl.Qr.Repository.Implementation
@@ -14,10 +13,12 @@ namespace Dttl.Qr.Repository.Implementation
         {
             _dbContext = dbContext;
         }
+
         public async Task<List<UrlqrCode>> GetURLQRCodelList()
         {
             return await _dbContext._uRLQRCodes.ToListAsync();
         }
+
         public async Task<UrlqrCode> GetURLQRCodeListById(int Id)
         {
             return await _dbContext._uRLQRCodes.FirstOrDefaultAsync(m => m.URLId == Id);
