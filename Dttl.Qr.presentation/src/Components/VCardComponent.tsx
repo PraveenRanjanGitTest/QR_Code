@@ -80,6 +80,7 @@ export function VCardComponent() {
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='form'>
                 <h1>{t('WelcomeTranslation')}</h1>
+                <h2>{t('TemplateGeneartionGuide')}</h2>
                 <div className="form-inputs">
                     <label
                         className="form-label">
