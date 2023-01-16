@@ -60,8 +60,8 @@ export const TemplateComponent: React.FC = () => {
     return (
         <>
             <QrCodeDisplayable
-                TargetUrl={'www.google.com'}
-                RenderType={'svg'} level={'L'} marginRequired={false}
+                TargetUrl={'www.deloitte.com'}
+                RenderType={'svg'} level={'H'} marginRequired={false}
                 DivId={qrcodeTempId} ForeColor={ForeColor} BackgroundColor={BackgroundColor} Height={Height} Width={Width}
                 Logo={template.Logo} CreatedBy={CreatedBy} TemplateName={TemplateName} TemplateId={''} CreatedDate={new Date()} ModifiedBy={''} ModifiedDate={new Date()} IsActive={false} IsApproved={false} Thumbnail={''} />
             <br />
@@ -85,11 +85,11 @@ export const TemplateComponent: React.FC = () => {
                     <input type="color" name="BackgroundColor" onChange={handleTemplateChanges} value={BackgroundColor}></input>
                     <input type="text" name="Height" onChange={handleTemplateChanges} value={Height}></input>
                     <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
-                    <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload} value=""></input>
+                    <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload}></input>
 
                    
 
-                    <button onClick={CreateNewTemplate}>Click me</button>
+                    <button onClick={CreateNewTemplate}>Create Template</button>
 
                 </div>
             }
