@@ -8,8 +8,8 @@ export const getQrDetailListById = () => {
     return axios.get(env.apiUrl + "/api/QRDetail/GetQRDetailListById")
 }
 
-export const addQrDetail = () => {
-    return axios.post(env.apiUrl + "/api/QRDetail/AddQRDetails")
+export const addQrDetail = (data: any) => {
+    return axios.post(env.apiUrl + "/api/QRDetail/AddQRDetails", data)
 }
 
 export const updateQrDetail = () => {
