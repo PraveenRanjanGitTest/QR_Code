@@ -3,18 +3,21 @@ import { useState } from "react";
 
 import { addQrTemplate, getQrTemplateList } from "../Services/QrTemplate"
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
+import QrCodeDisplayable from './QrCodeDisplayable';
+import { downloadQrCode, downloadQrCodecAsBase64 } from '../Utils/DownLoad';
+let qrcodeTempId = "qrcodeidfortemplate";
 
 export const TemplateComponent: React.FC = () => {
     const [template, setTemplate] = useState<DefaultTemplateProps>({
         ForeColor: "0xFFFFFF",
-        BackgroundColor: "0x000000",
-        Height: 2,
-        Width: 2,
+        BackgroundColor: '#c29999',
+        Height: 256,
+        Width: 256,
         Logo: '',
         TemplateName: 'My New Template',
         CreatedBy: 'Kanini User',
+        Thumbnail:''
     })
-    const [addTemplate, setAddTemplate] = useState(false);
 
     const handleTemplateLogoUpload = (event: any) => {
         if (event.target.files) {
@@ -43,8 +46,8 @@ export const TemplateComponent: React.FC = () => {
     };
 
     const CreateNewTemplate = () => {
-        console.log(template)
-        console.log(template.Logo)
+        
+        template.Thumbnail = downloadQrCodecAsBase64(qrcodeTempId);
         addQrTemplate(template
         ).then(function (response) {
             console.log(response);
@@ -56,11 +59,24 @@ export const TemplateComponent: React.FC = () => {
     const { TemplateName, CreatedBy, ForeColor, BackgroundColor, Height, Width, Logo } = template;
     return (
         <>
-
-            <button onClick={() => { setAddTemplate(true) }} disabled={addTemplate}> Add Templates</button>
+            <QrCodeDisplayable
+                TargetUrl={'www.google.com'}
+                RenderType={'svg'} level={'L'} marginRequired={false}
+                DivId={qrcodeTempId} ForeColor={ForeColor} BackgroundColor={BackgroundColor} Height={Height} Width={Width}
+                Logo={template.Logo} CreatedBy={CreatedBy} TemplateName={TemplateName} TemplateId={''} CreatedDate={new Date()} ModifiedBy={''} ModifiedDate={new Date()} IsActive={false} IsApproved={false} Thumbnail={''} />
+            <br />
+            <button onClick=
+                {
+                    () => {
+                        downloadQrCode(qrcodeTempId, "svg");
+                        downloadQrCode(qrcodeTempId, "png");
+                        downloadQrCode(qrcodeTempId, "jpeg");
+                        downloadQrCode(qrcodeTempId, "pdf");
+                    }
+                }>Download</button>
+            <br/>
 
             {
-                addTemplate &&
                 <div>
 
                     <input type="text" name="TemplateName" onChange={handleTemplateChanges} value={TemplateName}></input>
@@ -71,11 +87,13 @@ export const TemplateComponent: React.FC = () => {
                     <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
                     <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload} value=""></input>
 
-                    <img src={template.Logo} />
+                   
 
                     <button onClick={CreateNewTemplate}>Click me</button>
 
-                </div>}
+                </div>
+            }
+           
 
         </>
     )

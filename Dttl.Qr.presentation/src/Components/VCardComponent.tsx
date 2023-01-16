@@ -9,7 +9,6 @@ import { func } from 'prop-types';
 
 import { useTranslation } from 'react-i18next';
 
-
 export function VCardComponent() {
     const { t, i18n } = useTranslation();
 

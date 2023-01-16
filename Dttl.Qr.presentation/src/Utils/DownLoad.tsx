@@ -13,7 +13,8 @@ export function downloadQrCodecAsBase64(SvgElementId: string) {
 
 export function downloadQrCode(SvgElementId: string, imageType: string) {
     var svg = getSvgElement(SvgElementId);
-    let { width, height } = svg.getBBox();
+    let width = svg.clientWidth;
+    let height = svg.clientHeight;
     var image64 = downloadQrCodecAsBase64(SvgElementId);
 
     const image = document.createElement("img")

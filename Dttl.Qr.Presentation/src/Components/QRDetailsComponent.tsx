@@ -18,7 +18,6 @@ function QRCodeDetailsComponent() {
             };
         });
     }
-    const [AddQRCodeDetails, setAddQRDetails] = useState(false);
 
     const handleQRImage = (event: any) => {
         if (event.target.files) {
@@ -49,10 +48,8 @@ function QRCodeDetailsComponent() {
     const { QRCodeId, QRName, QRImage } = QRDetails;
     return (
         <>
-            <button onClick={() => { setAddQRDetails(true) }} disabled={AddQRCodeDetails}> AddQRCodeDetails</button>
+            <button > AddQRCodeDetails</button>
             {
-
-                AddQRCodeDetails &&
                 <div>
                     <div>
                         <label>
@@ -78,10 +75,8 @@ function QRCodeDetailsComponent() {
                         <button onClick={CreateNewQRCodeDetails}>AddQRCodeDetails</button>
                     </div>
                 </div>}
-            
+
         </>
     );
-
-
 }
 export default QRCodeDetailsComponent;

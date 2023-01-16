@@ -13,10 +13,11 @@ export function QrCodeDisplayable(displayProps: QRCodeDisplayableProps) {
                 fgColor={displayProps.ForeColor}
                 level={displayProps.level}
                 includeMargin={displayProps.marginRequired}
+                
                 imageSettings={{
                     src: displayProps.Logo,
-                    height: displayProps.Height * 10 / 100,
-                    width: displayProps.Width * 10 / 100,
+                    height: displayProps.Height * 20 / 100,
+                    width: displayProps.Width * 20 / 100,
                     excavate: true,
                 }}
             />
