@@ -19,7 +19,9 @@ export const TemplateComponent: React.FC = () => {
         Thumbnail:''
     })
 
-    const handleTemplateLogoUpload = (event: any) => {
+    
+    const handleTemplateChanges = (event: any) => {
+
         if (event.target.files) {
             if (event.target.files[0]) {
                 let reader = new FileReader();
@@ -43,16 +45,16 @@ export const TemplateComponent: React.FC = () => {
             }
 
         }
+        else {
+            setTemplate((prevState: any) => {
+                return {
+                    ...prevState,
+                    [event.target.name]: event.target.value,
+                };
+            });
+        }
     }
-    const handleTemplateChanges = (event: any) => {
-        const { name, value } = event.target;
-        setTemplate((prevState: any) => {
-            return {
-                ...prevState,
-                [name]: value,
-            };
-        });
-    };
+   
 
     const CreateNewTemplate = () => {
         
@@ -94,7 +96,7 @@ export const TemplateComponent: React.FC = () => {
                     <input type="color" name="BackgroundColor" onChange={handleTemplateChanges} value={BackgroundColor}></input>
                     <input type="text" name="Height" onChange={handleTemplateChanges} value={Height}></input>
                     <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
-                    <input type="file" accept="image/*" name="Logo" onChange={handleTemplateLogoUpload}></input>
+                    <input type="file" accept="image/*" name="Logo" onChange={handleTemplateChanges}></input>
 
                    
 
