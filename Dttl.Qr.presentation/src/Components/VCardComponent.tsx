@@ -7,7 +7,12 @@ import * as yup from 'yup'
 import { addVcard } from '../Services/Vcard';
 import { func } from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
+
 export function VCardComponent() {
+    const { t, i18n } = useTranslation();
+
     const DefaultVCardProps: DefaultVCardProps[] = [];
 
     const phoneRegExp = /^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/;
@@ -74,6 +79,7 @@ export function VCardComponent() {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='form'>
+                <h1>{t('WelcomeTranslation')}</h1>
                 <div className="form-inputs">
                     <label
                         className="form-label">

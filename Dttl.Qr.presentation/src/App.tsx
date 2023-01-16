@@ -7,6 +7,7 @@ import TemplateComponent from './Components/TemplateComponent';
 import URLComponent from './Components/URLComponent';
 import { VCardComponent } from './Components/VCardComponent';
 import { downloadQrCode } from './Utils/DownLoad';
+import "./Internationalisation/i18n"
 
 function App() {
     return (
