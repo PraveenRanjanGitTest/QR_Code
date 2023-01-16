@@ -1,4 +1,5 @@
-﻿import React from 'react';
+﻿
+import React from 'react';
 import { MouseEventHandler, useCallback, useState, useEffect } from "react";
 import data from "../data.json";
 import { DefaultTemplateProps, TemplateList } from "../Props/TemplateProps";
@@ -56,10 +57,14 @@ function SortButton({
     );
 }
 
-const SortableTable = ({ data }: { data: Data }) => {
+export const SortableTable = ({ data }: { data: Data }) => {
     const [sortKey, setSortKey] = useState<SortKeys>("templateId");
     const [sortOrder, setSortOrder] = useState<SortOrder>("ascn");
     const [showTable, setShowTable] = useState(false);
+    const [search, setSearch] = useState("");
+    const [template, setTemplate] = useState(data);
+
+
 
     const headers: { key: SortKeys; label: string }[] = [
         { key: "templateId", label: "Template Id" },
@@ -89,6 +94,8 @@ const SortableTable = ({ data }: { data: Data }) => {
     }
 
     const getTemplateTable = () => {
+
+
         getQrTemplateList(data)
             .then(function (response) {
                 console.log(response);
@@ -96,16 +103,47 @@ const SortableTable = ({ data }: { data: Data }) => {
             .catch(function (error) {
                 console.log(error);
             })
+
     }
+    {
+
+        template.filter(item => {
+            if (search == "") {
+                return item
+            }
+            else if (item.templateName.toLowerCase().includes(search.toLowerCase())) {
+                return item;
+            }
+        })
+
+    }
+    const handleSearch = () => {
+        return (
+            sortedData().filter(item =>
+                item.templateName.toLowerCase().includes(search.toLowerCase()) || item.templateId.toString().includes(search.toLowerCase()) || item.height.toString().includes(search.toLowerCase()) || item.width.toString().includes(search.toLowerCase()) || item.foreColor.toString().includes(search.toLowerCase()) || item.backgroundColor.toString().includes(search.toLowerCase()) || item.logo.toString().includes(search.toLowerCase()) || item.isActive.toString().includes(search.toLowerCase()) || item.isApproved.toString().includes(search.toLowerCase()) || item.createdBy.toString().includes(search.toLowerCase()) || item.createdDate.toString().includes(search.toLowerCase()) || item.width.toString().includes(search.toLowerCase()) || item.createdDate.toString().includes(search.toLowerCase()) || item.modifiedBy.toString().includes(search.toLowerCase()) || item.modifiedDate.toString().includes(search.toLowerCase())
+            )
+        )
+    }
+
+
+
+
+    console.log(sortedData())
+    let searchedData = search ? handleSearch() : sortedData();
 
     return (
         <>
-            <button onClick={getTemplateTable}>list api status</button>
+            <button onClick={() => { setShowTable(true) }} disabled={showTable}> List Template</button>
 
-            <button onClick={() => { setShowTable(true) }} disabled={showTable}> List View </button>
+            
 
-            {
-                showTable && <><table>
+
+            {showTable && <><input
+                type="text"
+                placeholder="Search here"
+                onChange={(e) => {
+                    setSearch(e.target.value);
+                } } /><table>
                     <thead>
                         <tr>
                             {headers.map((row) => {
@@ -118,8 +156,7 @@ const SortableTable = ({ data }: { data: Data }) => {
                                             {...{
                                                 sortOrder,
                                                 sortKey,
-                                            }}
-                                        />
+                                            }} />
                                     </td>
                                 );
                             })}
@@ -127,7 +164,7 @@ const SortableTable = ({ data }: { data: Data }) => {
                     </thead>
 
                     <tbody>
-                        {sortedData().map((templateList) => {
+                        {searchedData.map((templateList) => {
                             return (
                                 <tr key={templateList.templateId}>
                                     <td>{templateList.templateId}</td>
@@ -148,10 +185,13 @@ const SortableTable = ({ data }: { data: Data }) => {
                             );
                         })}
                     </tbody>
-                </table></>
+                </table></> 
             }
+            </>
+        );
+     
 
-        </>);
-}
+    }
 
-export default SortableTable;
+
+    
