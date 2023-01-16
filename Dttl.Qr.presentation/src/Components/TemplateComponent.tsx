@@ -33,6 +33,15 @@ export const TemplateComponent: React.FC = () => {
                     });
                 }
             }
+            else {
+                setTemplate((prevState: any) => {
+                    return {
+                        ...prevState,
+                        [event.target.name]: event.target.value,
+                    };
+                });
+            }
+
         }
     }
     const handleTemplateChanges = (event: any) => {
