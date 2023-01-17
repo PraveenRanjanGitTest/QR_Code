@@ -6,7 +6,7 @@ export interface DefaultVCardProps {
     LastName: string;
     UploadImage: any;
     Designation: string;
-    MobileNumber: string;
+    MobileNo: string;
     EmailId: string;
     CompanyName: string;
     Website: string;

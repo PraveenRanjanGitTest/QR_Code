@@ -7,12 +7,13 @@ import * as yup from 'yup'
 import { addVcard } from '../Services/Vcard';
 import { func } from 'prop-types';
 
-import { useTranslation } from 'react-i18next';
+
 
 export function VCardComponent() {
-    const { t, i18n } = useTranslation();
-
     const DefaultVCardProps: DefaultVCardProps[] = [];
+
+    const [VCard, setVCard] = useState(false);
+
 
     const phoneRegExp = /^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/;
     const ValidationSchema = yup.object().shape({
@@ -36,7 +37,7 @@ export function VCardComponent() {
             .required("UploadImage is required"),
         Designation: yup.string()
             .required("Designation is required"),
-        MobileNumber: yup.string()
+        MobileNo: yup.string()
             .required("Phone number is required")
             .typeError("That doesn't look like a phone number")
             .matches(phoneRegExp, 'Phone number is not valid'),
@@ -52,10 +53,11 @@ export function VCardComponent() {
             .required("PersonalLinks is Required")
     })
 
+
     const [filebase64, setFileBase64] = useState<string>("")
     const onSubmit: SubmitHandler<DefaultVCardProps> = event => {
         event.UploadImage = filebase64
-        addVcard(event).then(function (response) { console.log(response) }).catch(function (error) { console.log(error); })
+        addVcard(event).then(function (response) { }).catch(function (error) { console.log(error); })
     };
 
     const { register, handleSubmit, formState: { errors } } = useForm<DefaultVCardProps>(
@@ -66,7 +68,6 @@ export function VCardComponent() {
         if (files) {
             const fileRef = files[0] || ""
             const fileType: string = fileRef.type || ""
-            console.log("This file upload is of type:", fileType)
             const reader = new FileReader()
             reader.readAsBinaryString(fileRef)
             reader.onload = (ev: any) => {
@@ -77,60 +78,53 @@ export function VCardComponent() {
     }
     return (
         <div>
+            <button onClick={() => { setVCard(true) }} disabled={VCard}>VCard View </button>
+            {
+                VCard&&
+           
             <form onSubmit={handleSubmit(onSubmit)} className='form'>
-                <h1>{t('WelcomeTranslation')}</h1>
-                <h2>{t('TemplateGeneartionGuide')}</h2>
-                <div className="form-inputs">
-                    <label
-                        className="form-label">
+                <div>
+                    <label>
                         QRCode Id
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className='form-input'
                         placeholder="Enter your QRCode Id"  {...register("QRCodeId")} />
                     {errors?.QRCodeId && <small style={{ color: "red" }}>{errors.QRCodeId.message}</small>}
                 </div>
-                <div className="form-inputs">
-                    <label
-                        className="form-label">
+                <div>
+                    <label>
                         Title
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className='form-input'
                         placeholder="Enter your Title"  {...register("Title")} />
                     {errors?.Title && <small style={{ color: "red" }}>{errors.Title.message}</small>}
                 </div>
-                <div className="form-inputs">
-                    <label
-                        className="form-label">
+                <div>
+                    <label>
                         Employee Code
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className='form-input'
                         placeholder="Enter your Employee Code"  {...register("EmployeeCode")} />
                     {errors?.EmployeeCode && <small style={{ color: "red" }}>{errors.EmployeeCode.message}</small>}
                 </div>
-                <div className="form-inputs">
-                    <label
-                        className="form-label">
+                <div>
+                    <label>
                         First Name
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className='form-input'
                         placeholder="Enter your First Name"  {...register("FirstName")} />
                     {errors?.FirstName && <small style={{ color: "red" }}>{errors.FirstName.message}</small>}
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">
+                <div>
+                    <label>
                         Last Name
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your Last Name"
                         {...register("LastName")}
                     />
@@ -138,12 +132,10 @@ export function VCardComponent() {
                         <small style={{ color: "red" }}>{errors.LastName.message}</small>
                     )}
                 </div>
-                <div className="form-inputs"  >
-
-                    <label
-                        className="form-label">
+                <div>
+                    <label>
                         Upload Image </label>
-                    <input className='form-input' type="file" title="profile" {...register("UploadImage", { onChange: (e) => convertFile(e.target.files) })} />
+                    <input type="file" title="profile" {...register("UploadImage", { onChange: (e) => convertFile(e.target.files) })} />
                     {filebase64 &&
                         <>
                             {(filebase64.indexOf("image/") > -1) &&
@@ -152,13 +144,12 @@ export function VCardComponent() {
                         </>
                     }
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">
+                <div>
+                    <label>
                         Designation
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your Designation"
                         {...register("Designation")}
                     />
@@ -166,27 +157,25 @@ export function VCardComponent() {
                         <small style={{ color: "red" }}>{errors.Designation.message}</small>
                     )}
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">
+                <div >
+                    <label>
                         Mobile Number
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your Mobile Number"
-                        {...register("MobileNumber")}
+                        {...register("MobileNo")}
                     />
-                    {errors.MobileNumber && (
-                        <small style={{ color: "red" }}>{errors.MobileNumber.message}</small>
+                    {errors.MobileNo && (
+                        <small style={{ color: "red" }}>{errors.MobileNo.message}</small>
                     )}
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">
+                <div>
+                    <label>
                         Email Id
                         <small style={{ color: "red" }}>*</small>
                     </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your EmailId"
                         {...register("EmailId")}
                     />
@@ -194,12 +183,11 @@ export function VCardComponent() {
                         <small style={{ color: "red" }}>{errors.EmailId.message}</small>
                     )}
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">
+                <div>
+                    <label>
                         Company Name
                     </label>
                     <input
-                        className="form-input"
                         {...register("CompanyName")}
                         placeholder="Enter your company"
                     />
@@ -207,10 +195,9 @@ export function VCardComponent() {
                         <small style={{ color: "red" }}>{errors.CompanyName.message}</small>
                     )}
                 </div>
-                <div className="form-inputs">
-                    <label className="form-label">Website </label>
+                <div>
+                    <label>Website </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your Website"
                         {...register("Website")}
                     />
@@ -220,10 +207,9 @@ export function VCardComponent() {
                         </small>
                     )}
                 </div >
-                <div className="form-inputs">
-                    <label className="form-label">Personal Link </label>
+                <div>
+                    <label>Personal Link </label>
                     <input
-                        className="form-input"
                         placeholder="Enter your Personal Links"
                         {...register("PersonalLinks")}
                     />
@@ -233,9 +219,10 @@ export function VCardComponent() {
                         </small>
                     )}
                 </div >
-                <div className="form-inputs">
-                    <input className="form-input" type="submit"></input>  </div>
-            </form>
+                <div>
+                    <input type="submit"></input>  </div>
+                </form>
+            }
         </div>
 
     )

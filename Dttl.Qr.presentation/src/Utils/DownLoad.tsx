@@ -1,7 +1,6 @@
 import jsPDF from 'jspdf';
 
 let nameofthefile = "qrcode.";
-let tempCanvasId = "canvasqrid";
 
 export function downloadQrCodecAsBase64(SvgElementId: string) {
     var svg = getSvgElement(SvgElementId);
@@ -14,15 +13,14 @@ export function downloadQrCodecAsBase64(SvgElementId: string) {
 
 export function downloadQrCode(SvgElementId: string, imageType: string) {
     var svg = getSvgElement(SvgElementId);
-    let width = svg.clientWidth;
-    let height = svg.clientHeight;
+    let { width, height } = svg.getBBox();
     var image64 = downloadQrCodecAsBase64(SvgElementId);
 
     const image = document.createElement("img")
     image.src = image64;
 
     var canvasElement = document.createElement('canvas');
-    canvasElement.id = tempCanvasId;
+    canvasElement.id = "canvasqrid";
     canvasElement.width = width;
     canvasElement.height = height;
     let context = canvasElement.getContext('2d');

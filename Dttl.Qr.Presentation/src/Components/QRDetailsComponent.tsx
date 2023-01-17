@@ -18,6 +18,8 @@ function QRCodeDetailsComponent() {
             };
         });
     }
+    const [AddQRCodeDetails, setAddQRDetails] = useState(false);
+
 
     const handleQRImage = (event: any) => {
         if (event.target.files) {
@@ -39,7 +41,6 @@ function QRCodeDetailsComponent() {
     const CreateNewQRCodeDetails = () => {
         addQrDetail(QRDetails)
             .then(function (response) {
-                console.log(response.status);
             })
             .catch(function (error) {
                 console.log(error);
@@ -48,8 +49,10 @@ function QRCodeDetailsComponent() {
     const { QRCodeId, QRName, QRImage } = QRDetails;
     return (
         <>
-            <button > AddQRCodeDetails</button>
+            <button onClick={() => { setAddQRDetails(true) }} disabled={AddQRCodeDetails}>QRCodeDetails</button>
             {
+
+                AddQRCodeDetails &&
                 <div>
                     <div>
                         <label>
@@ -67,16 +70,20 @@ function QRCodeDetailsComponent() {
                         <label>
                             QRImage:
                         </label>
-                        <input type="file" name="QRImage" accept="image/*" onChange={handleQRImage} value=""></input>
-                        <img src={QRDetails.QRImage} />
+                        <input type="file" name="QRImage" accept="image/*" onChange={handleQRImage} value="" ></input>
+
+                        <img style={{ margin: "25px 50px 5px 200px" }} src={QRImage} alt="" width={300} />
+
                     </div>
 
                     <div>
-                        <button onClick={CreateNewQRCodeDetails}>AddQRCodeDetails</button>
+                        <button onClick={CreateNewQRCodeDetails}>Submit</button>
                     </div>
                 </div>}
 
         </>
     );
+
+
 }
 export default QRCodeDetailsComponent;

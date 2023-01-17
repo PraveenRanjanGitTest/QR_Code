@@ -8,7 +8,6 @@
     <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\Internationalisation\Translation\" />
     <Folder Include="src\Tabs\" />
   </ItemGroup>
 </Project>
