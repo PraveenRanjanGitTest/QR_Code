@@ -1,0 +1,25 @@
+{
+  "short_name": "QR Code Generation",
+  "name": "Deloitte QR Code Generation",
+  "icons": [
+    {
+      "src": "DEL_Favicons_Standard-white_square.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "DEL_Favicons_Standard-white_circular.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "DEL_Favicons_Standard-black_circular.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
