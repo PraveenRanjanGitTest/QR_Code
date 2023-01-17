@@ -5,7 +5,7 @@ import { addUrlQrCode } from '../Services/Url';
 function URLComponent() {
     const [url, seturl] = useState<DefaultURLProps>({
         URLId: 1001,
-        QRCodeId: 111,
+        QRCodeId: 100028,
         Title: "xyz",
         Url: "xyz/abc"
     });
@@ -69,11 +69,8 @@ function URLComponent() {
                     </div>
 
                 </div>
-            }    
+            }
         </>
-
     );
-
-
 }
 export default URLComponent;

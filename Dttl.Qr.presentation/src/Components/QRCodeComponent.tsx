@@ -7,7 +7,7 @@ export function QRCodeComponent() {
         TemplateId: 1001,
         QRType: "xyz",
         IsDynamic: false,
-        CreadtedBy: "xyz"
+        CreatedBy: "xyz"
     });
 
     const [addQRCode, setAddQRCode] = useState(false);
@@ -32,7 +32,7 @@ export function QRCodeComponent() {
 
     }
 
-    const { TemplateId, QRType, IsDynamic, CreadtedBy } = qrcode;
+    const { TemplateId, QRType, IsDynamic, CreatedBy } = qrcode;
     return (
         <>
             <button onClick={() => { setAddQRCode(true) }} disabled={addQRCode}>Add QRCode</button>
@@ -66,7 +66,7 @@ export function QRCodeComponent() {
                                 className="form-label">
                                 Creadted By:
                             </label>
-                            <input type="text" name="CreadtedBy" onChange={handleQRCodeChanges} value={CreadtedBy}></input>
+                            <input type="text" name="CreadtedBy" onChange={handleQRCodeChanges} value={CreatedBy}></input>
                         </div>
 
                         <div>
