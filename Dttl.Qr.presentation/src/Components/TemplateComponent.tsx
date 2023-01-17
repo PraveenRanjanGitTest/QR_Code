@@ -67,8 +67,6 @@ export const TemplateComponent: React.FC = () => {
             {
                 addTemplate &&
                 <div>
-                    <form >
-
                     <input type="text" name="TemplateName" onChange={handleTemplateChanges} value={TemplateName}></input>
                     <input type="text" name="CreatedBy" onChange={handleTemplateChanges} value={CreatedBy}></input>
                     <input type="color" name="ForeColor" onChange={handleTemplateChanges} value={ForeColor}></input>
@@ -81,7 +79,6 @@ export const TemplateComponent: React.FC = () => {
                     <input type="file" accept="image/*" name="TemplatePreview" onChange={handleTemplateLogoUpload} value=""></input>
                                 <img style={{ margin: "25px 25px 5px 50px" }} src={template.TemplatePreview} width={200} />
                             <button type='submit' onClick={CreateNewTemplate} >Submit</button>
-                        </form>
                 </div>}
 
         </>

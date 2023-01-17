@@ -1,7 +1,7 @@
 import './App.css';
 import { QRCodeComponent } from './Components/QRCodeComponent';
 import QRCodeDetailsComponent from './Components/QRDetailsComponent';
-import SortableTable from './Components/SortedTable';
+import {SortableTable} from './Components/SortedTable';
 import TemplateComponent from './Components/TemplateComponent';
 import URLComponent from './Components/URLComponent';
 import { VCardComponent } from './Components/VCardComponent';
