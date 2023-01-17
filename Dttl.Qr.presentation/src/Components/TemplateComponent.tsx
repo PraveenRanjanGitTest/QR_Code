@@ -16,12 +16,10 @@ export const TemplateComponent: React.FC = () => {
         Logo: '',
         TemplateName: 'My New Template',
         CreatedBy: 'Kanini User',
-        Thumbnail:''
+        Thumbnail: ''
     })
 
-    
     const handleTemplateChanges = (event: any) => {
-
         if (event.target.files) {
             if (event.target.files[0]) {
                 let reader = new FileReader();
@@ -43,7 +41,6 @@ export const TemplateComponent: React.FC = () => {
                     };
                 });
             }
-
         }
         else {
             setTemplate((prevState: any) => {
@@ -54,10 +51,8 @@ export const TemplateComponent: React.FC = () => {
             });
         }
     }
-   
 
     const CreateNewTemplate = () => {
-        
         template.Thumbnail = downloadQrCodecAsBase64(qrcodeTempId);
         addQrTemplate(template
         ).then(function (response) {
@@ -85,7 +80,7 @@ export const TemplateComponent: React.FC = () => {
                         downloadQrCode(qrcodeTempId, "pdf");
                     }
                 }>Download</button>
-            <br/>
+            <br />
 
             {
                 <div>
@@ -98,13 +93,10 @@ export const TemplateComponent: React.FC = () => {
                     <input type="text" name="Width" onChange={handleTemplateChanges} value={Width}></input>
                     <input type="file" accept="image/*" name="Logo" onChange={handleTemplateChanges}></input>
 
-                   
-
                     <button onClick={CreateNewTemplate}>Create Template</button>
 
                 </div>
             }
-           
 
         </>
     )
