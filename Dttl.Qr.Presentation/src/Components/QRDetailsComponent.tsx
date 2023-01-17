@@ -20,7 +20,6 @@ function QRCodeDetailsComponent() {
     }
     const [AddQRCodeDetails, setAddQRDetails] = useState(false);
 
-
     const handleQRImage = (event: any) => {
         if (event.target.files) {
             if (event.target.files[0]) {
@@ -51,7 +50,6 @@ function QRCodeDetailsComponent() {
         <>
             <button onClick={() => { setAddQRDetails(true) }} disabled={AddQRCodeDetails}>QRCodeDetails</button>
             {
-
                 AddQRCodeDetails &&
                 <div>
                     <div>
@@ -83,7 +81,5 @@ function QRCodeDetailsComponent() {
 
         </>
     );
-
-
 }
 export default QRCodeDetailsComponent;

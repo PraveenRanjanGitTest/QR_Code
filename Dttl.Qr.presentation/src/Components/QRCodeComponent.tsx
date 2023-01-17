@@ -29,7 +29,6 @@ export function QRCodeComponent() {
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
     const { TemplateId, QRType, IsDynamic, CreatedBy } = qrcode;
